@@ -1,0 +1,51 @@
+html, body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+#leftBlock, #content, #rightBlock, #header, #footer{
+	border: 1px solid black;
+}
+
+#leftBlock, #content, #rightBlock{
+	min-height: 650px;
+}
+
+#leftBlock, #rightBlock{
+	min-width: 20%;
+}
+
+#header{
+	min-height: 100px;
+	background-color: #7f8c8d;
+}
+
+#leftBlock{
+	float: left;
+	background-color: #e67e22;
+	margin-right: 10px;
+}
+
+#content{
+	overflow: hidden;
+	background-color: #ecf0f1;
+}
+
+#rightBlock{
+	float: right;
+	background-color: #2980b9;
+	margin-left: 10px;
+}
+
+#footer{
+	background: #555;
+	min-height: 50px;
+}
+
+#wrapForFlexBox{
+   flex-grow: 1;
+}
