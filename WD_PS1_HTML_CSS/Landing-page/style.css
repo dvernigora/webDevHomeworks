@@ -1,0 +1,76 @@
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    min-width: 1280px;
+}
+
+#header, #banner, #content, #footer{
+    border: 1px solid black;
+}
+
+#header{
+    min-height: 80px;
+}
+
+#logo__leftSide, #logo__rightSide{
+    font-family: Georgia, serif;
+    font-size: 350%;
+    letter-spacing: -5px;
+    margin: 0;
+    font-weight: bold;
+}
+
+#logo{
+    margin-left: 8%;
+}
+
+#logo__rightSide{
+    font-family: Arial Black, serif;
+    color: #1abc9c;
+    font-size: 350%;
+}
+
+#header__menu{
+    list-style: none;
+    float: right;
+    margin-top: 2.5%;
+}
+
+#header__menu li{
+    display: inline;
+    font-size: large;
+    font-family: Georgia, serif;
+    margin-right: 70px;
+}
+
+#banner{
+    min-height: 555px;
+    background-color: #1abc9c;
+}
+
+#phone_img{
+    margin-left: 13%;
+    margin-top: 5%;
+    width: 34%;
+}
+
+#banner__text{
+    /*It is necessary to center this element.*/
+    color: white;
+}
+
+#content{
+    min-height: 400px;
+}
+#footer{
+    min-height: 565px;
+}
