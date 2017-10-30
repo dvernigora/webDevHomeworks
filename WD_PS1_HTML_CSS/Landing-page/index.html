@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="icons/css/font-awesome.min.css">
     <title>My landing page</title>
 </head>
 <body>
-    <div class="container">
+    <div id="container">
         <div id="header">
-            <span id="logo">
+            <div id="logo">
                 <span id="logo__leftSide">N</span>
                 <span id="logo__rightSide">++</span>
-            </span>
+            </div>
             <ul id="header__menu">
                 <li>PRODUCTS</li>
                 <li>ABOUT US</li>
@@ -19,13 +20,59 @@
             </ul>
         </div>
         <div id="banner">
-            <img src="img/phone.png" id="phone_img">
-            <span id="banner__text">
-                There must be text here.
-            </span>
+            <div id="phone_img">
+                <img src="img/phone.png">
+            </div>
+            <div id="banner__textContainer">
+                <h1>Our awesome app is ready to use!</h1>
+                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi ut aliquip ex ea commodo consequat!
+                </div>
+                <button id="btnForBuy">Buy now!</button>
+            </div>
         </div>
-        <div id="content">content</div>
-        <div id="footer">footer</div>
+        <div id="content">
+            <div class="contentItems">
+                <div class="contentIcons">
+                    <i class="fa fa-code fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="contentText"><h1>Web development</h1>Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Mauris consectetur, metus a venenatis semper, nisi dolor luctus est, quis convallis ante
+                    nisi in erat. Nullam rutrum neque elit, quis iaculis!</div>
+            </div>
+            <div class="contentItems">
+                <div class="contentIcons">
+                    <i class="fa fa-android fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="contentText"><h1>Mobile development</h1>Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Sed pharetra mauris enim, at finibus orci pulvinar vitae. Vestibulum finibus leo non
+                    bibendum scelerisque. Mauris et placerat elit, nec vehicula leo.</div>
+            </div>
+            <div class="contentItems">
+                <div class="contentIcons">
+                    <i class="fa fa-cloud fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="contentText"><h1>Hightload</h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed ornare pharetra consectetur. Pellentesque quam augue, semper in nibh sit amet, cursus iaculis
+                    ante. Integer vehicula efficitur sapien, nec dapibus justo.</div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="contentFooter">
+                <div>Contact us!</div>
+                <form class="contactForm">
+                    <div class="contactForm__inputStyle">
+                        <input type="text" id="contactForm__usrName" placeholder=" Type here your name, please" /><br>
+                        <input type="email" id="contactForm__usrEmail" placeholder=" Type here your email, please" /><br>
+                        <input type="tel" id="contactForm__usrTel" placeholder=" Type here your phone, please" /><br>
+                    </div>
+                    <textarea id="contactForm__usrMessage" placeholder=" Ask your question"></textarea><br>
+                    <input type="submit" id="contactForm__sendMessage" value="Send email!">
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>

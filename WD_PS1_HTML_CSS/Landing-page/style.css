@@ -9,27 +9,30 @@ body{
     align-items: center;
 }
 
-.container{
-    min-width: 1280px;
+#container{
+    width: 67.2%;
 }
 
 #header, #banner, #content, #footer{
-    border: 1px solid black;
+    //border: 1px solid black;
 }
 
 #header{
-    min-height: 80px;
+    min-height: 85px;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
 }
 
 #logo__leftSide, #logo__rightSide{
     font-family: Georgia, serif;
-    font-size: 350%;
-    letter-spacing: -5px;
+    font-size: 384%;
     margin: 0;
     font-weight: bold;
 }
 
 #logo{
+    display: inline-flex;
     margin-left: 8%;
 }
 
@@ -40,37 +43,146 @@ body{
 }
 
 #header__menu{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
     list-style: none;
-    float: right;
-    margin-top: 2.5%;
 }
 
 #header__menu li{
-    display: inline;
-    font-size: large;
-    font-family: Georgia, serif;
-    margin-right: 70px;
+    margin-right: 8%;
 }
 
 #banner{
     min-height: 555px;
     background-color: #1abc9c;
+    display: flex;
 }
 
 #phone_img{
-    margin-left: 13%;
-    margin-top: 5%;
-    width: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#banner__text{
-    /*It is necessary to center this element.*/
+#phone_img img{
+    /*float: left;*/
+    /*margin-left: 13%;*/
+    /*margin-top: 5%;*/
+    /*margin-right: 4%;*/
+    width: 72%;
+    margin-left: 17%;
+}
+
+#banner__textContainer{
+    //width: 43%;
     color: white;
+    overflow-wrap: break-word;
+    width: 97%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+}
+
+#banner__textContainer h1{
+    margin-top: -4%;
+    margin-bottom: 8%;
+    font-family: Georgia, serif;
+    font-size: 190%;
+}
+
+#banner__textContainer div{
+    font-size: 120%;
+    margin-bottom: 8%;
+    width: 90%;
+}
+
+#btnForBuy{
+    font-size: 130%;
+    background-color: #1abc9c;
+    color: white;
+    padding: 11px 26px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    //margin-top: 4%;
 }
 
 #content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 400px;
 }
+
+.contentItems{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 24%;
+    margin-left: 3%;
+    margin-right: 1.5%;
+    margin-top: 1%;
+}
+
+#content i{
+    color: white;
+}
+
+.contentIcons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1abc9c;
+    width: 85px;
+    height: 85px;
+    border-radius: 100%;
+}
+
+.contentText{
+    width: 85%;
+    text-align: center;
+    font-size: 19px;
+    overflow-wrap: break-word;
+    margin-top: 2%;
+}
+
+.contentText h1{
+    font-size: 20px;
+}
+
 #footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 565px;
+    background-color: #1abc9c;
+}
+
+#contentFooter{
+    width: 47%;
+    min-height: 460px;
+    margin-left: 1.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contentFooter div{
+    color: white;
+    font-size: 245%;
+    margin-bottom: 8%;
+}
+
+.contactForm{
+    width: 100%;
+}
+
+.contactForm__inputStyle{
+    display: flex;
+    flex-direction: column;
+    //width: 100%;
 }
