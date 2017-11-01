@@ -1,27 +1,67 @@
-html, body{
-    height: 100%;
-    margin: 0;
+body, footer, #contentFooter, .contentItems, #container__loginForm, form,
+#header__menu, #banner, #banner__lotteryPage, #banner__textContainer,
+#content, .contentIcons, #phone_img, #regForm__containerBtn{
+    display: flex;
 }
 
-body{
-    display: flex;
+body, footer, #contentFooter, .contentItems, #container__loginForm, form,
+header, #contactForm__usrName, #contactForm__usrEmail, #contactForm__usrTel,
+#loginForm__usrLogin, #loginForm__usrPass, form textarea{
+    width: 100%;
+}
+
+body, footer, #contentFooter, .contentItems, #container__loginForm, form{
+    height: auto;
     flex-direction: column;
     align-items: center;
 }
 
 #container{
     width: 67.2%;
+    margin: 0 auto;
 }
 
-#header, #banner, #content, #footer{
-    //border: 1px solid black;
+#container__loginForm{
+    width: 97%;
 }
 
-#header{
+#container__loginForm h1{
+    color: white;
+    text-align: center;
+    font-size: 208%;
+    margin-bottom: 5%;
+}
+
+#container__regForm{
+    width: 65%;
+}
+
+#regForm{
+    display: block;
+    color: white;
+    font-size: 114%;
+}
+
+#regForm__leftBlock{
+    float: left;
+    width: 38%;
+}
+
+#regForm__rightBlock{
+    float: right;
+    width: 38%;
+}
+
+#regForm__bottomBlock{
+    clear: both;
+    width: 38%;
+    margin: 0 auto;
+}
+
+header{
     min-height: 85px;
     display: inline-flex;
     align-items: center;
-    width: 100%;
 }
 
 #logo__leftSide, #logo__rightSide{
@@ -43,7 +83,6 @@ body{
 }
 
 #header__menu{
-    display: flex;
     flex-grow: 1;
     justify-content: flex-end;
     list-style: none;
@@ -53,35 +92,34 @@ body{
     margin-right: 8%;
 }
 
-#banner{
-    min-height: 555px;
-    background-color: #1abc9c;
-    display: flex;
+#header__menu a{
+    text-decoration: none;
+    color: black;
 }
 
-#phone_img{
-    display: flex;
-    justify-content: center;
+#banner, #banner__lotteryPage{
+    min-height: 555px;
+    background-color: #1abc9c;
+}
+
+#banner__lotteryPage{
     align-items: center;
 }
 
+#banner__lotteryPage, #banner__textContainer, footer{
+    justify-content: center;
+}
+
 #phone_img img{
-    /*float: left;*/
-    /*margin-left: 13%;*/
-    /*margin-top: 5%;*/
-    /*margin-right: 4%;*/
     width: 72%;
     margin-left: 17%;
 }
 
 #banner__textContainer{
-    //width: 43%;
     color: white;
     overflow-wrap: break-word;
     width: 97%;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: baseline;
 }
 
@@ -98,7 +136,7 @@ body{
     width: 90%;
 }
 
-#btnForBuy{
+#btnForBuy, #btnForLottery{
     font-size: 130%;
     background-color: #1abc9c;
     color: white;
@@ -110,17 +148,21 @@ body{
     //margin-top: 4%;
 }
 
-#content{
-    display: flex;
+#btnForLottery{
+    margin-left: 65%;
+    margin-top: -8%;
+}
+
+#content, .contentIcons, #phone_img{
     justify-content: center;
     align-items: center;
+}
+
+#content{
     min-height: 400px;
 }
 
 .contentItems{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 24%;
     margin-left: 3%;
     margin-right: 1.5%;
@@ -132,9 +174,6 @@ body{
 }
 
 .contentIcons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #1abc9c;
     width: 85px;
     height: 85px;
@@ -153,36 +192,101 @@ body{
     font-size: 20px;
 }
 
-#footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+footer{
     min-height: 565px;
-    background-color: #1abc9c;
+    background-color: #16a085;
 }
 
 #contentFooter{
-    width: 47%;
+    width: 46%;
     min-height: 460px;
-    margin-left: 1.5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-left: 1.6%;
+}
+
+#contentFooter div, form textarea, .regForm__elemStyle{
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 #contentFooter div{
     color: white;
-    font-size: 245%;
+    font-size: 216%;
+    margin-top: 1%;
     margin-bottom: 8%;
 }
 
-.contactForm{
-    width: 100%;
+#contactForm__usrName, #contactForm__usrEmail, #contactForm__usrTel,
+#loginForm__usrLogin, #loginForm__usrPass{
+    height: 28px;
+    margin-bottom: 1.4%;
+    padding-left: 10px;
+    font-size: 121%;
 }
 
-.contactForm__inputStyle{
-    display: flex;
-    flex-direction: column;
-    //width: 100%;
+form textarea{
+    height: 114px;
+    margin-bottom: 10.7%;
+    padding-left: 11px;
+    padding-top: 4px;
+    font-size: 121%;
+}
+
+#contactForm__sendMessageBtn, #contactForm__registrationBtn, #contactForm__logInBtn{
+    font-size: 148.8%;
+    background-color: #16a085;
+    color: white;
+    padding: 10px 60px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+#regForm__containerBtn{
+    justify-content: space-around;
+    margin-top: 5%;
+}
+
+#regForm__reset, #regForm__submit{
+    font-size: 148.8%;
+    background-color: #1abc9c;
+    color: white;
+    //padding: 10px 60px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+#regForm__reset{
+    padding: 0px 35px;
+}
+
+#loginForm__usrPass{
+    margin-bottom: 5%;
+}
+
+#regForm__usrName{
+    margin-top: 2.6%;
+}
+
+.regForm__elemStyle{
+    width: 98.5%;
+    margin-bottom: 2%;
+    font-size: 108%;
+}
+
+#contactForm__registrationBtn{
+    background-color: #1abc9c;
+    margin-right: 58%;
+    padding: 10px 20px;
+}
+
+#wrap__loginForm{
+    width: 60%;
+}
+
+#contactForm__logInBtn{
+    background-color: #1abc9c;
+    margin-left: 54%;
+    margin-top: -13.5%;
 }

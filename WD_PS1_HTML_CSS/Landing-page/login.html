@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="icons/css/font-awesome.min.css">
+    <title>My landing page</title>
+</head>
+<body>
+    <div id="container">
+    <header>
+        <div id="logo">
+            <span id="logo__leftSide">N</span>
+            <span id="logo__rightSide">++</span>
+        </div>
+        <ul id="header__menu">
+            <li><a href="index.html">PRODUCTS</a></li>
+            <li><a href="#linkContent">ABOUT US</a></li>
+            <li><a href="#linkFooter">CONTACT US</a></li>
+        </ul>
+    </header>
+    <div id="banner__lotteryPage">
+        <div id="phone_img">
+            <img src="img/phone.png">
+        </div>
+        <div id="container__loginForm">
+            <h1>Sign up in the draw of the iPhone or login, to find out lottery results!</h1>
+            <div id="wrap__loginForm">
+                <form id="loginForm">
+                    <input type="text" id="loginForm__usrLogin" placeholder="Type here your login, please" />
+                    <input type="password" id="loginForm__usrPass" placeholder="Type here your password, please" />
+                    <input type="button" onclick="location.href='registration.html'" id="contactForm__registrationBtn" value="Registration">
+                    <input type="button" onclick="location.href='success_registration.html'" id="contactForm__logInBtn" value="Log in">
+                </form>
+            </div>
+        </div>
+        <a name="linkContent"></a>
+    </div>
+    <div id="content">
+        <div class="contentItems">
+            <div class="contentIcons">
+                <i class="fa fa-code fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="contentText"><h1>Web development</h1>Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Mauris consectetur, metus a venenatis semper, nisi dolor luctus est, quis convallis ante
+                nisi in erat. Nullam rutrum neque elit, quis iaculis!</div>
+        </div>
+        <div class="contentItems">
+            <div class="contentIcons">
+                <i class="fa fa-android fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="contentText"><h1>Mobile development</h1>Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Sed pharetra mauris enim, at finibus orci pulvinar vitae. Vestibulum finibus leo non
+                bibendum scelerisque. Mauris et placerat elit, nec vehicula leo.</div>
+        </div>
+        <div class="contentItems">
+            <div class="contentIcons">
+                <i class="fa fa-cloud fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="contentText"><h1>Hightload</h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed ornare pharetra consectetur. Pellentesque quam augue, semper in nibh sit amet, cursus iaculis
+                ante. Integer vehicula efficitur sapien, nec dapibus justo.</div>
+        </div>
+    </div>
+    <footer>
+        <a name="linkFooter"></a>
+        <div id="contentFooter">
+            <div>Contact us!</div>
+            <form class="contactForm">
+                <input type="text" id="contactForm__usrName" placeholder="Type here your name, please" />
+                <input type="email" id="contactForm__usrEmail" placeholder="Type here your email, please" />
+                <input type="tel" id="contactForm__usrTel" placeholder="Type here your phone, please" />
+                <textarea id="contactForm__usrMessage" placeholder="Ask your question"></textarea>
+                <input type="submit" id="contactForm__sendMessageBtn" value="Send email!">
+            </form>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

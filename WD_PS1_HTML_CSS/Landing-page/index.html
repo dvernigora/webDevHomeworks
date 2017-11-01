@@ -8,21 +8,22 @@
 </head>
 <body>
     <div id="container">
-        <div id="header">
+        <header>
             <div id="logo">
                 <span id="logo__leftSide">N</span>
                 <span id="logo__rightSide">++</span>
             </div>
             <ul id="header__menu">
-                <li>PRODUCTS</li>
-                <li>ABOUT US</li>
-                <li>CONTACT US</li>
+                <li><a href="#linkBanner">PRODUCTS</a></li>
+                <li><a href="#linkContent">ABOUT US</a></li>
+                <li><a href="#linkFooter">CONTACT US</a></li>
             </ul>
-        </div>
+        </header>
         <div id="banner">
             <div id="phone_img">
                 <img src="img/phone.png">
             </div>
+            <a name="linkBanner"></a>
             <div id="banner__textContainer">
                 <h1>Our awesome app is ready to use!</h1>
                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -30,7 +31,9 @@
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                     nisi ut aliquip ex ea commodo consequat!
                 </div>
-                <button id="btnForBuy">Buy now!</button>
+                <button onclick="location.href='https://www.apple.com/shop/buy-iphone/iphone-se'" id="btnForBuy">Buy now!</button>
+                <button onclick="location.href='login.html'" id="btnForLottery">Get free!</button>
+                <a name="linkContent"></a>
             </div>
         </div>
         <div id="content">
@@ -59,20 +62,19 @@
                     ante. Integer vehicula efficitur sapien, nec dapibus justo.</div>
             </div>
         </div>
-        <div id="footer">
+        <footer>
+            <a name="linkFooter"></a>
             <div id="contentFooter">
                 <div>Contact us!</div>
                 <form class="contactForm">
-                    <div class="contactForm__inputStyle">
-                        <input type="text" id="contactForm__usrName" placeholder=" Type here your name, please" /><br>
-                        <input type="email" id="contactForm__usrEmail" placeholder=" Type here your email, please" /><br>
-                        <input type="tel" id="contactForm__usrTel" placeholder=" Type here your phone, please" /><br>
-                    </div>
-                    <textarea id="contactForm__usrMessage" placeholder=" Ask your question"></textarea><br>
-                    <input type="submit" id="contactForm__sendMessage" value="Send email!">
+                    <input type="text" id="contactForm__usrName" placeholder="Type here your name, please" />
+                    <input type="email" id="contactForm__usrEmail" placeholder="Type here your email, please" />
+                    <input type="tel" id="contactForm__usrTel" placeholder="Type here your phone, please" />
+                    <textarea id="contactForm__usrMessage" placeholder="Ask your question"></textarea>
+                    <input type="submit" id="contactForm__sendMessageBtn" value="Send email!">
                 </form>
             </div>
-        </div>
+        </footer>
     </div>
 </body>
 </html>
