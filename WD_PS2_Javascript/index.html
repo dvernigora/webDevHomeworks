@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Hello JS!</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="mainWrap">
+	<div id="container">
+		<div class="wrapperForTask">
+			<h1>Want to know the sum of numbers from -1000 to 1000?</h1>
+			<button onclick="sumOfNumbers()">Click me!</button>
+			<h1 id="sumOfNumbers__answer"></h1>
+		</div>
+		<div class="wrapperForTask">
+			<h1>Let's count the sum of numbers from -1000 to 1000, summing only numbers which ending 2, 3, and 7.</h1>
+			<button onclick="sumOfNumbersOptionally()">Let's count</button>
+			<h1 id="sumOfNumbersOptionally__answer"></h1>
+		</div>
+		<div class="wrapperForTask" id="wrapperForChristmasTrees">
+			<h1>Let's build a Christmas trees!</h1>
+			<button id="buildChristmasTree__Btn" onclick="buildChristmasTree()">Let's build!</button>
+		</div>
+		<div class="wrapperForTask">
+			<h1>I can convert seconds into hours!</h1>
+			<input type="text" id="secondsIntoHours__input" onkeyup="secondsIntoHours()"/>
+			<h1 id="secondsIntoHours__answer"></h1>
+		</div>
+		<div class="wrapperForTask">
+			<h1>Enter your full age in digit:</h1>
+			<input type="text" id="ageOfTheStudent__input" />
+			<button id="ageOfTheStudent__Btn" onclick="countAgeOfTheStudent()">Show my age!</button>
+			<h1 id="ageOfTheStudent__answer"></h1>
+		</div>
+		<div class="wrapperForTask"></div>
+		<div class="wrapperForTask"></div>
+		<div class="wrapperForTask"></div>
+		<div class="wrapperForTask"></div>
+		<div class="wrapperForTask"></div>
+		<div class="wrapperForTask"></div>
+	</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
