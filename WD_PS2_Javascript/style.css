@@ -5,7 +5,7 @@
 	background-color: #ecf0f1;
 }
 
-#container{
+#mainContainer{
 	width: 50%;
 	background-color: #f3f3f3;
 }
@@ -53,6 +53,7 @@ h1{
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	width: 100%;
 }
 
 input{
@@ -62,4 +63,49 @@ input{
 
 #ageOfTheStudent__Btn{
 	width: 19%;
+}
+
+#differenceBetweenTheDates__Btn, #locationOfApartment__Btn{
+	font-size: 140%;
+	padding: 9px;
+}
+
+#differenceDates__firstInput, #differenceDates__secondInput{
+	box-sizing: border-box;
+	display: inline-flex;
+	margin-left: 4%;
+	margin-right: 3%;
+	width: 28%;
+}
+
+.differenceDates__label{
+	display: inline-flex;
+	width: 35%;
+	justify-content: center;
+	font-size: 117%;
+	color: #634949;
+}
+
+#zodiacSigns__input{
+	width: 17%;
+}
+
+#numOfApartment__input{
+	width: 20%;
+}
+
+.locationOfApartment__label{
+	display: inline-flex;
+	width: 33%;
+	justify-content: center;
+}
+
+#numOfEntrances__input, #numOfApartmentsPerFloor__input, #numOfFloors__input{
+	width: 29%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+#sortLinks__textarea{
+	margin-bottom: 10px;
 }
