@@ -13,32 +13,32 @@
 <div id="mainWrap">
 	<div id="mainContainer">
 		<div class="wrapperForTask">
-			<h1>Want to know the sum of numbers from -1000 to 1000?</h1>
+			<p class="textOfTask">Want to know the sum of numbers from -1000 to 1000?</p>
 			<button onclick="sumOfNumbers()">Click me!</button>
-			<h1 id="sumOfNumbers__answer"></h1>
+			<p class="textOfTask" id="sumOfNumbers__answer"></p>
 		</div>
 		<div class="wrapperForTask">
-			<h1>Let's count the sum of numbers from -1000 to 1000, summing only numbers which ending 2, 3, and 7.</h1>
+			<p class="textOfTask">Let's count the sum of numbers from -1000 to 1000, summing only numbers which ending 2, 3, and 7.</p>
 			<button onclick="sumOfNumbersOptionally()">Let's count</button>
-			<h1 id="sumOfNumbersOptionally__answer"></h1>
+			<p class="textOfTask" id="sumOfNumbersOptionally__answer"></p>
 		</div>
 		<div class="wrapperForTask" id="wrapperForChristmasTrees">
-			<h1>Let's build a Christmas trees!</h1>
+			<p class="textOfTask">Let's build a Christmas trees!</p>
 			<button id="buildChristmasTree__Btn" onclick="buildChristmasTree()">Let's build!</button>
 		</div>
 		<div class="wrapperForTask">
-			<h1>You can convert seconds into hours!</h1>
+			<p class="textOfTask">You can convert seconds into hours!</p>
 			<input type="text" id="secondsIntoHours__input" onkeyup="secondsIntoHours()"/>
-			<h1 id="secondsIntoHours__answer"></h1>
+			<p class="textOfTask" id="secondsIntoHours__answer"></p>
 		</div>
 		<div class="wrapperForTask">
-			<h1>Enter your full age in digit:</h1>
+			<p class="textOfTask">Enter your full age in digit:</p>
 			<input type="text" id="ageOfTheStudent__input"/>
 			<button id="ageOfTheStudent__Btn" onclick="countAgeOfTheStudent()">Show my age!</button>
-			<h1 id="ageOfTheStudent__answer"></h1>
+			<p class="textOfTask" id="ageOfTheStudent__answer"></p>
 		</div>
 		<div class="wrapperForTask">
-			<h1>You can calculate the difference between two dates:</h1>
+			<p class="textOfTask">You can calculate the difference between two dates:</p>
 			<form>
 				<label for="differenceDates__firstInput" class="differenceDates__label">Enter the first date:</label>
 				<label for="differenceDates__secondInput" class="differenceDates__label">Enter a second date:</label>
@@ -46,17 +46,17 @@
 				<input type="datetime-local" id="differenceDates__secondInput" step="1"/>
 			</form>
 			<button id="differenceBetweenTheDates__Btn" onclick="differenceBetweenTheDates()">Count</button>
-			<h1 id="differenceBetweenTheDates__answer"></h1>
+			<p class="textOfTask" id="differenceBetweenTheDates__answer"></p>
 		</div>
 		<div class="wrapperForTask" id="wrapperForZodiacSigns">
-			<h1>You can find out the sign of the zodiac by entering the date of birth!</h1>
+			<p class="textOfTask">You can find out the sign of the zodiac by entering the date of birth!</p>
 			<input type="date" id="zodiacSigns__input"/>
 			<button id="zodiacSigns__Btn" onclick="getZodiacSigns()">Show it!</button>
 			<img id="zodiacSignImg">
-			<h1 id="zodiacSigns__answer"></h1>
+			<p class="textOfTask" id="zodiacSigns__answer"></p>
 		</div>
 		<div class="wrapperForTask" id="containerForCheckerboard">
-			<h1>Draw a checkerboard!</h1>
+			<p class="textOfTask">Draw a checkerboard!</p>
 			<select id="listOfSizesCheckerboard" onchange="buildCheckerboard()">
 				<option selected="selected" value="0">Select size of chessboard</option>
 				<option value="2">2x2</option>
@@ -66,32 +66,41 @@
 			<div id="wrapperForCheckerboard"></div>
 		</div>
 		<div class="wrapperForTask">
-			<h1>Find out which entrance and which floor is the apartment:</h1>
-			<label for="numOfApartment__input">Enter apartment number:</label>
-			<input type="text" id="numOfApartment__input"/>
+			<p class="textOfTask">Find out which entrance and which floor is the apartment:</p>
+			<div class="wrapForLocationOfApartment__input">
+				<label for="numOfApartment__input">Enter apartment number:</label>
+				<input type="text" id="numOfApartment__input"/>
+			</div>
 			<form id="locationOfApartment__Form">
-				<label for="numOfEntrances__input" class="locationOfApartment__label">Enter number of entrances:</label>
-				<label for="numOfApartmentsPerFloor__input" class="locationOfApartment__label">Enter number of
-					apartments per floor:</label>
-				<label for="numOfFloors__input" class="locationOfApartment__label">Enter number of floors:</label>
-				<input type="text" id="numOfEntrances__input"/>
-				<input type="text" id="numOfApartmentsPerFloor__input"/>
-				<input type="text" id="numOfFloors__input"/>
+				<div class="wrapForLocationOfApartment__input">
+					<label for="numOfEntrances__input" class="locationOfApartment__label">Enter number of
+						entrances:</label>
+					<input type="text" id="numOfEntrances__input"/>
+				</div>
+				<div class="wrapForLocationOfApartment__input">
+					<label for="numOfApartmentsPerFloor__input" class="locationOfApartment__label">Enter number of
+						apartments per floor:</label>
+					<input type="text" id="numOfApartmentsPerFloor__input"/>
+				</div>
+				<div class="wrapForLocationOfApartment__input">
+					<label for="numOfFloors__input" class="locationOfApartment__label">Enter number of floors:</label>
+					<input type="text" id="numOfFloors__input"/>
+				</div>
 			</form>
 			<button id="locationOfApartment__Btn" onclick="getLocationOfApartment()">Count</button>
-			<h1 id="locationOfApartment__answer"></h1>
+			<p class="textOfTask" id="locationOfApartment__answer"></p>
 		</div>
 		<div class="wrapperForTask">
-			<h1>You can get sum of the digits entered number.</h1>
+			<p class="textOfTask">You can get sum of the digits entered number.</p>
 			<input type="text" id="sumOfTheDigitsEnteredNumber__input" onkeyup="sumOfTheDigitsEnteredNumber()"/>
-			<h1 id="sumOfTheDigitsEnteredNumber__answer"></h1>
+			<p class="textOfTask" id="sumOfTheDigitsEnteredNumber__answer"></p>
 		</div>
-		<div class="wrapperForTask">
-			<h1>You can sort the links in alphabetical order.</h1>
+		<div class="wrapperForTask" id="sortLinks">
+			<p class="textOfTask">You can sort the links in alphabetical order.</p>
 			<textarea id="sortLinks__textarea" cols="30" rows="10" maxlength="500"
 					  onkeyup="disableSortLinksTextarea()"></textarea>
 			<button id="sortLinks__Btn" onclick="sortLinks()">Sort links</button>
-			<h1 id="sortLinks__answer"></h1>
+			<ul class="textOfTask" id="sortLinks__answer"></ul>
 		</div>
 	</div>
 </div>

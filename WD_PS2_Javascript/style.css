@@ -1,16 +1,16 @@
-#mainWrap{
+#mainWrap {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	background-color: #ecf0f1;
 }
 
-#mainContainer{
+#mainContainer {
 	width: 50%;
 	background-color: #f3f3f3;
 }
 
-.wrapperForTask{
+.wrapperForTask {
 	min-height: 100px;
 	border: 2px solid #949494;
 	display: flex;
@@ -23,7 +23,7 @@
 	padding: 0 5% 0 5%;
 }
 
-button{
+button {
 	font-size: 130%;
 	background-color: #828181;
 	color: #f3f3f3;
@@ -36,7 +36,7 @@ button{
 	width: 16%;
 }
 
-button:hover{
+button:hover {
 	border: 2px solid #949494;
 	transition: 0.2s;
 }
@@ -45,7 +45,7 @@ button:focus {
 	outline: none;
 }
 
-h1{
+.textOfTask {
 	color: #756d6d;
 	font-size: 125%;
 	font-family: Helvetica, Arial, sans-serif;
@@ -56,21 +56,25 @@ h1{
 	width: 100%;
 }
 
-input{
+input {
 	margin-bottom: 10px;
 	width: 15%;
 }
 
-#ageOfTheStudent__Btn{
+#ageOfTheStudent__Btn {
 	width: 19%;
 }
 
-#differenceBetweenTheDates__Btn, #locationOfApartment__Btn{
+#sortLinks__Btn, #locationOfApartment__Btn{
+	margin-bottom: 1%;
+}
+
+#differenceBetweenTheDates__Btn, #locationOfApartment__Btn {
 	font-size: 140%;
 	padding: 9px;
 }
 
-#differenceDates__firstInput, #differenceDates__secondInput{
+#differenceDates__firstInput, #differenceDates__secondInput {
 	box-sizing: border-box;
 	display: inline-flex;
 	margin-left: 4%;
@@ -78,34 +82,37 @@ input{
 	width: 28%;
 }
 
-.differenceDates__label{
-	display: inline-flex;
-	width: 35%;
-	justify-content: center;
+label {
 	font-size: 117%;
 	color: #634949;
 }
 
-#zodiacSigns__input{
+.differenceDates__label{
+	display: inline-flex;
+	justify-content: center;
+	width: 35%;
+}
+
+#zodiacSigns__input {
 	width: 17%;
 }
 
-#numOfApartment__input{
-	width: 20%;
-}
-
-.locationOfApartment__label{
-	display: inline-flex;
-	width: 33%;
+.wrapForLocationOfApartment__input {
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
-#numOfEntrances__input, #numOfApartmentsPerFloor__input, #numOfFloors__input{
-	width: 29%;
-	margin-left: 2%;
-	margin-right: 2%;
+#locationOfApartment__Form {
+	display: inline-flex;
 }
 
-#sortLinks__textarea{
+.wrapForLocationOfApartment__input input {
+	width: 100%;
+}
+
+#sortLinks__textarea {
 	margin-bottom: 10px;
 }

@@ -3,8 +3,8 @@ function sumOfNumbers() {
     for (var i = -1000; i <= 1000; i++) {
         res += i;
     }
-    document.getElementById('sumOfNumbers__answer').innerHTML = 'Check this out! The answer is - ' +
-        res.toString() + '!)';
+    document.getElementById('sumOfNumbers__answer').innerText = 'Check this out! The answer is - ' +
+        res + '!)';
 }
 
 function sumOfNumbersOptionally() {
@@ -14,8 +14,8 @@ function sumOfNumbersOptionally() {
             res += i;
         }
     }
-    document.getElementById('sumOfNumbersOptionally__answer').innerHTML = 'Wouldn\'t believe it! It\'s again - ' +
-        res.toString() + '!';
+    document.getElementById('sumOfNumbersOptionally__answer').innerText = 'Wouldn\'t believe it! It\'s again - ' +
+        res + '!';
 }
 
 function buildChristmasTree() {
@@ -64,67 +64,36 @@ function buildChristmasTree() {
     treeBtn.disabled = true;
 }
 
-function isValidNum(arg) {
-    var valid = true;
-    if (arg !== null && arg !== '') {
-        for (var i = 0; i < arg.length; i++) {
-            if (!isNum(arg.charAt(i))) {
-                valid = false;
-            }
-        }
-    } else {
-        valid = false;
-    }
-    return valid;
-}
-
-function isNum(char) {
-    return char >= '0' && char <= '9';
-}
-
 function secondsIntoHours() {
     var input = document.getElementById('secondsIntoHours__input');
     var arg = input.value;
-    if (isValidNum(arg)) {
+    if (!isNaN(+arg)) {
         var sec = arg;
         var hours = sec / 3600;
         var minutes = sec / 60 % 60;
         var seconds = sec % 60;
-        var timeFormat = numFloor(hours) + ':' + numFloor(minutes) + ':' + numFloor(seconds);
+        var timeFormat = numFormat(hours) + ':' + numFormat(minutes) + ':' + numFormat(seconds);
 
-        document.getElementById('secondsIntoHours__answer').innerHTML = arg + ' seconds it is a ' + timeFormat +
+        document.getElementById('secondsIntoHours__answer').innerText = arg + ' seconds it is a ' + timeFormat +
             ' hours.';
     } else {
-        document.getElementById('secondsIntoHours__answer').innerHTML = '\"' + arg + '\"' +
+        document.getElementById('secondsIntoHours__answer').innerText = '\"' + arg + '\"' +
             ' - Incorrect data. Enter a positive integer.';
     }
 }
 
-function numFloor(val) {
-    if (hasDot(val)) {
-        var valTmp;
-        valTmp = val.toString();
-        valTmp = valTmp.substring(0, valTmp.indexOf('.'));
-        val = valTmp;
+function numFormat(val) {
+    if (val.toString().indexOf('.') !== -1) {
+        val = Math.floor(val);
     }
     return val < 10 ? '0' + val : val;
-}
-
-function hasDot(arg) {
-    arg = arg.toString();
-    for (var i = 0; i < arg.length; i++) {
-        if (arg.charAt(i) === '.') {
-            return true;
-        }
-    }
-    return false;
 }
 
 function countAgeOfTheStudent() {
     var input = document.getElementById('ageOfTheStudent__input');
     var arg = input.value;
 
-    if (isValidNum(arg)) {
+    if (!isNaN(+arg)) {
         if (arg.length > 1) {
             var firstDigit = arg.charAt(0);
             while (firstDigit === '0') {
@@ -133,14 +102,14 @@ function countAgeOfTheStudent() {
         }
 
         if (arg > 145) {
-            document.getElementById('ageOfTheStudent__answer').innerHTML = 'Presumably you\'re already dead... ' +
+            document.getElementById('ageOfTheStudent__answer').innerText = 'Presumably you\'re already dead... ' +
                 'The age of the older of man on the planet - 145 years.';
         } else {
             var prefixes = getPrefixForNum(arg);
-            document.getElementById('ageOfTheStudent__answer').innerHTML = 'Тебе ' + arg + ' ' + prefixes.prefixForYears + '. (I had to write in Russian..)';
+            document.getElementById('ageOfTheStudent__answer').innerText = 'Тебе ' + arg + ' ' + prefixes.prefixForYears + '. (I had to write in Russian..)';
         }
     } else {
-        document.getElementById('ageOfTheStudent__answer').innerHTML = '\"' + arg + '\"' +
+        document.getElementById('ageOfTheStudent__answer').innerText = '\"' + arg + '\"' +
             ' - Incorrect data. Enter a positive integer.';
     }
 }
@@ -188,9 +157,10 @@ function differenceBetweenTheDates() {
     var firstDate = new Date(firstInput.value);
     var secondInput = document.getElementById('differenceDates__secondInput');
     var secondDate = new Date(secondInput.value);
+    var res = document.getElementById('differenceBetweenTheDates__answer');
 
     if (firstDate.toLocaleString() === 'Invalid Date' || secondDate.toLocaleString() === 'Invalid Date') {
-        document.getElementById('differenceBetweenTheDates__answer').innerHTML = 'Please fill out all the fields correctly';
+        res.innerText = 'Please fill out all the fields correctly';
     } else {
         if (firstDate > secondDate) {
             firstDate = new Date(secondInput.value);
@@ -246,7 +216,6 @@ function differenceBetweenTheDates() {
             hours: diffHours, minutes: diffMinutes, seconds: diffSeconds
         };
 
-
         var prefixForYears = getPrefixForNum(arrDifferenceDates.years).prefixForYears;
         var prefixForMonths = getPrefixForNum(arrDifferenceDates.months).prefixForMonths;
         var prefixForDays = getPrefixForNum(arrDifferenceDates.days).prefixForDays;
@@ -255,8 +224,7 @@ function differenceBetweenTheDates() {
         var prefixForSeconds = getPrefixForNum(arrDifferenceDates.seconds).prefixForSeconds;
         var prefixForPast = getPrefixForNum(arrDifferenceDates.years).prefixForPast;
 
-
-        document.getElementById('differenceBetweenTheDates__answer').innerHTML = prefixForPast + ' ' +
+        res.innerText = prefixForPast + ' ' +
             arrDifferenceDates.years + ' ' + prefixForYears + ', ' + arrDifferenceDates.months + ' ' +
             prefixForMonths + ', ' + arrDifferenceDates.days + ' ' + prefixForDays + ', ' +
             arrDifferenceDates.hours + ' ' + prefixForHours + ', ' + arrDifferenceDates.minutes + ' ' +
@@ -267,10 +235,10 @@ function differenceBetweenTheDates() {
 function getZodiacSigns() {
     var zodiacSignInput = document.getElementById('zodiacSigns__input');
     var zodiacSignDate = new Date(zodiacSignInput.value);
+    var zodiacSignsAnswer = document.getElementById('zodiacSigns__answer');
 
     if (zodiacSignDate.toLocaleString() === 'Invalid Date') {
-        document.getElementById('zodiacSigns__answer').innerHTML =
-            'Make sure that the field for entering the date are filled in correctly';
+        zodiacSignsAnswer.innerText = 'Make sure that the field for entering the date are filled in correctly';
     } else {
         zodiacSignDate.setUTCFullYear(1970);
         var zodiacSigns = [{
@@ -320,7 +288,7 @@ function getZodiacSigns() {
                 zodiacSignImg.src = 'img/' + signName + '.png';
             }
         }
-        document.getElementById('zodiacSigns__answer').innerHTML = 'Your zodiac sign is "' + signName + '"';
+        zodiacSignsAnswer.innerText = 'Your zodiac sign is "' + signName + '"';
     }
 }
 
@@ -375,6 +343,7 @@ function getLocationOfApartment() {
     var numOfEntrancesInput = document.getElementById('numOfEntrances__input');
     var numOfApartmentsPerFloorInput = document.getElementById('numOfApartmentsPerFloor__input');
     var numOfFloorsInput = document.getElementById('numOfFloors__input');
+    var res = document.getElementById('locationOfApartment__answer');
 
     var numOfApartment = numOfApartmentInput.value;
     var numOfEntrances = numOfEntrancesInput.value;
@@ -383,8 +352,8 @@ function getLocationOfApartment() {
 
     var numApartmentsInBuilding = numOfEntrances * numOfApartmentsPerFloor * numOfFloors;
 
-    if (isValidNum(numOfApartment) && isValidNum(numOfEntrances) &&
-        isValidNum(numOfApartmentsPerFloor) && isValidNum(numOfFloors) && numApartmentsInBuilding >= numOfApartment) {
+    if (!isNaN(+numOfApartment) && !isNaN(+numOfEntrances) && !isNaN(+numOfApartmentsPerFloor) &&
+        !isNaN(+numOfFloors) && numApartmentsInBuilding >= numOfApartment) {
 
         var numOfEntrance;
         var numOfFloor;
@@ -393,7 +362,7 @@ function getLocationOfApartment() {
         var coefficientOfEntranceAndFloor = numOfApartment / numOfFloorsInEntrance;
         coefficientOfEntranceAndFloor = coefficientOfEntranceAndFloor.toString();
 
-        if (hasDot(coefficientOfEntranceAndFloor)) {
+        if (coefficientOfEntranceAndFloor.indexOf('.') !== -1) {
             numOfEntrance = coefficientOfEntranceAndFloor.substring(0, coefficientOfEntranceAndFloor.indexOf('.'));
             numOfFloor = coefficientOfEntranceAndFloor.substring(coefficientOfEntranceAndFloor.indexOf('.') + 1);
             numOfEntrance++;
@@ -412,89 +381,61 @@ function getLocationOfApartment() {
             numOfFloor = numOfFloorsInEntrance;
         }
 
-        document.getElementById('locationOfApartment__answer').innerHTML =
-            'The apartment is located at the ' + numOfEntrance + ' entrance. The floor number is ' + numOfFloor + '.';
+        res.innerText = 'The apartment is located at the ' + numOfEntrance + ' entrance. The floor number is ' +
+            numOfFloor + '.';
     } else {
-        document.getElementById('locationOfApartment__answer').innerHTML =
-            'Make sure that all fields for entering are filled in correctly.';
+        res.innerText = 'Make sure that all fields for entering are filled in correctly.';
     }
 }
 
 function sumOfTheDigitsEnteredNumber() {
     var input = document.getElementById('sumOfTheDigitsEnteredNumber__input');
+    var res = document.getElementById('sumOfTheDigitsEnteredNumber__answer');
     var arg = input.value;
-
     if (arg.length > 1) {
-        var isValid;
-        var minus = '';
-        if (arg.charAt(0) === '-') {
-            arg = arg.substring(1);
-            isValid = isValidNum(arg);
-            minus = '-';
-        } else {
-            isValid = isValidNum(arg);
-        }
-
-        if (isValid) {
-            var arrOfNumbers = arg.split('');
-            var res = 0;
-            for (var i = 0; i < arrOfNumbers.length; i++) {
-                arrOfNumbers[i] = minus + arrOfNumbers[i];
-                arrOfNumbers[i] = Number(arrOfNumbers[i]);
-                res += arrOfNumbers[i];
+        if (!isNaN(+arg)) {
+            if (arg.charAt(0) === '-') {
+                arg = arg.substring(1).split('').reduce(function(a, b) {
+                    return +a + +b;
+                });
+                arg = -arg;
+            } else {
+                arg = arg.split('').reduce(function(a, b) {
+                    return +a + +b;
+                });
             }
-            document.getElementById('sumOfTheDigitsEnteredNumber__answer').innerHTML = 'Sum of the digits is = ' + res;
+            res.innerText = 'Sum of the digits is = ' + arg;
         } else {
-            document.getElementById('sumOfTheDigitsEnteredNumber__answer').innerHTML =
-                'Incorrect data. Enter the integer.';
+            res.innerText = 'Incorrect data. Enter the integer.';
         }
     }
 }
 
 function disableSortLinksTextarea() {
     var textarea = document.getElementById('sortLinks__textarea');
-    var maxLength = textarea.getAttribute('maxlength');
-    var arg = textarea.value;
-    var valid = true;
-    for (var i = 0; i < arg.length; i++) {
-        if (i !== 0 && arg.charAt(i) === ' ' && arg.charAt(i - 1) !== ',') {
-            valid = false;
-            break;
-        }
-    }
-    if (valid) {
-        document.getElementById('sortLinks__answer').innerHTML = '';
-    } else {
-        document.getElementById('sortLinks__answer').innerHTML =
-            'Please introduce links to, separated by commas!';
-    }
+    var maxLength = +textarea.getAttribute('maxlength');
+    var valueLength = textarea.value.length;
 
-    if (textarea.value.length === (maxLength - 1) || textarea.value.length === (maxLength)) {
-        textarea.disabled = true;
+    if (valueLength === maxLength) {
         sortLinks();
     }
 }
 
 function sortLinks() {
     var textarea = document.getElementById('sortLinks__textarea');
-    var arg = textarea.value;
+    var arrLinks = textarea.value.toLowerCase().replace(/https?:\/\//igm, '').match(/[^\s,]+/g).sort();
+    var res = document.getElementById('sortLinks__answer');
+    var treeBtn = document.getElementById('sortLinks__Btn');
 
-    var arrLinks = arg.split(',');
-    for (var i = 0; i < arrLinks.length; i++) {
-        arrLinks[i] = arrLinks[i].toLowerCase();
-        if (arrLinks[i].charAt(0) === ' ') {
-            arrLinks[i] = arrLinks[i].substring(1);
-        }
-
-        while (arrLinks[i].indexOf('http://') >= 0 || arrLinks[i].indexOf('https://') >= 0){
-            arrLinks[i] = arrLinks[i].replace('http://', '');
-            arrLinks[i] = arrLinks[i].replace('https://', '');
-        }
-        if (arrLinks[i].charAt(arrLinks[i].length-1) === '/'){
-            arrLinks[i] = arrLinks[i].substring(0, arrLinks[i].length-1)
-        }
-
+    for (var i = 0, linkLi, link; i < arrLinks.length; i++) {
+        linkLi = document.createElement('li');
+        link = document.createElement('a');
+        link.setAttribute('href', 'http://' + arrLinks[i]);
+        link.setAttribute('target', '_blank');
+        link.innerText = arrLinks[i];
+        linkLi.appendChild(link);
+        res.appendChild(linkLi);
     }
-    document.getElementById('sortLinks__answer').innerHTML = arrLinks.sort().toString();
-
+    treeBtn.disabled = true;
+    textarea.disabled = true;
 }
