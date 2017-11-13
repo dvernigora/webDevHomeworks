@@ -65,7 +65,7 @@ input {
 	width: 19%;
 }
 
-#sortLinks__Btn, #locationOfApartment__Btn{
+#sortLinks__Btn, #locationOfApartment__Btn {
 	margin-bottom: 1%;
 }
 
@@ -87,7 +87,7 @@ label {
 	color: #634949;
 }
 
-.differenceDates__label{
+.differenceDates__label {
 	display: inline-flex;
 	justify-content: center;
 	width: 35%;
@@ -115,4 +115,35 @@ label {
 
 #sortLinks__textarea {
 	margin-bottom: 10px;
+}
+
+.christmasTreesRow {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.christmasTree {
+	margin: 10px;
+	color: #4a4545
+}
+
+#zodiacSignImg {
+	width: 17%;
+}
+
+.checkerboardCell__white {
+	width: 100%;
+	background-color: white;
+}
+
+.checkerboardCell__black {
+	width: 100%;
+	background-color: black;
+}
+
+.wrapperForCheckerboard__style {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	border: 1px solid black;
 }

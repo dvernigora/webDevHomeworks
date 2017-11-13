@@ -25,7 +25,6 @@ function buildChristmasTree() {
 
     for (var k = 0; k < row; k++) {
         var christmasTreesRow = document.createElement('div');
-        christmasTreesRow.style = 'width: 100%; display: flex; justify-content: center;';
         christmasTreesRow.className = 'christmasTreesRow';
         for (var a = 0; a < treesInRow; a++) {
             var treeHeight = 4;
@@ -35,7 +34,6 @@ function buildChristmasTree() {
 
             var newTree = document.createElement('span');
             newTree.className = 'christmasTree';
-            newTree.style = 'margin: 10px; color: #4a4545';
             for (var x = 0; x <= treeHeight; x++) {
                 for (var y = 0; y < treeWidth; y++) {
                     if (x !== treeHeight) {
@@ -67,7 +65,7 @@ function buildChristmasTree() {
 function secondsIntoHours() {
     var input = document.getElementById('secondsIntoHours__input');
     var arg = input.value;
-    if (!isNaN(+arg)) {
+    if (!isNaN(+arg) && arg !== '') {
         var sec = arg;
         var hours = sec / 3600;
         var minutes = sec / 60 % 60;
@@ -284,7 +282,6 @@ function getZodiacSigns() {
             if (zodiacSigns[i].isCoincidence) {
                 var signName = zodiacSigns[i].signName;
                 var zodiacSignImg = document.getElementById('zodiacSignImg');
-                zodiacSignImg.style = 'width: 17%;';
                 zodiacSignImg.src = 'img/' + signName + '.png';
             }
         }
@@ -302,7 +299,7 @@ function buildCheckerboard() {
 
         var newWrapperForCheckerboard = document.createElement('div');
         newWrapperForCheckerboard.id = 'wrapperForCheckerboard';
-        newWrapperForCheckerboard.style = 'margin-top: 1%; margin-bottom: 1%; border: 1px solid black;';
+        newWrapperForCheckerboard.className = 'wrapperForCheckerboard__style';
         document.getElementById('containerForCheckerboard').appendChild(newWrapperForCheckerboard);
 
         for (var i = 0; i < numOfCells; i++) {
@@ -316,15 +313,15 @@ function buildCheckerboard() {
                 var checkerboardCell = document.createElement('div');
                 if (i % 2 === 0) {
                     if (j % 2 === 0) {
-                        checkerboardCell.style = 'width: 100%; background-color: white;';
+                        checkerboardCell.className = 'checkerboardCell__white';
                     } else {
-                        checkerboardCell.style = 'width: 100%; background-color: black;';
+                        checkerboardCell.className = 'checkerboardCell__black';
                     }
                 } else {
                     if (j % 2 === 0) {
-                        checkerboardCell.style = 'width: 100%; background-color: black;';
+                        checkerboardCell.className = 'checkerboardCell__black';
                     } else {
-                        checkerboardCell.style = 'width: 100%; background-color: white;';
+                        checkerboardCell.className = 'checkerboardCell__white';
                     }
                 }
                 document.getElementById('rowOfCells__' + i).appendChild(checkerboardCell);
