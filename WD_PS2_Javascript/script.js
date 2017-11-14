@@ -65,12 +65,12 @@ function buildChristmasTree() {
 function secondsIntoHours() {
     var input = document.getElementById('secondsIntoHours__input');
     var arg = input.value;
-    if (!isNaN(+arg) && arg !== '') {
+    if (!isNaN(+arg) && arg) {
         var sec = arg;
         var hours = sec / 3600;
         var minutes = sec / 60 % 60;
         var seconds = sec % 60;
-        var timeFormat = numFormat(hours) + ':' + numFormat(minutes) + ':' + numFormat(seconds);
+        var timeFormat = toTimeFormat(hours) + ':' + toTimeFormat(minutes) + ':' + toTimeFormat(seconds);
 
         document.getElementById('secondsIntoHours__answer').innerText = arg + ' seconds it is a ' + timeFormat +
             ' hours.';
@@ -80,10 +80,8 @@ function secondsIntoHours() {
     }
 }
 
-function numFormat(val) {
-    if (val.toString().indexOf('.') !== -1) {
-        val = Math.floor(val);
-    }
+function toTimeFormat(val) {
+    val = Math.floor(val);
     return val < 10 ? '0' + val : val;
 }
 
@@ -327,6 +325,7 @@ function buildCheckerboard() {
                 document.getElementById('rowOfCells__' + i).appendChild(checkerboardCell);
             }
         }
+
     } else {
         wrapperForCheckerboard.remove();
         var emptyWrapperForCheckerboard = document.createElement('div');
@@ -392,12 +391,12 @@ function sumOfTheDigitsEnteredNumber() {
     if (arg.length > 1) {
         if (!isNaN(+arg)) {
             if (arg.charAt(0) === '-') {
-                arg = arg.substring(1).split('').reduce(function(a, b) {
+                arg = arg.substring(1).split('').reduce(function (a, b) {
                     return +a + +b;
                 });
                 arg = -arg;
             } else {
-                arg = arg.split('').reduce(function(a, b) {
+                arg = arg.split('').reduce(function (a, b) {
                     return +a + +b;
                 });
             }
@@ -422,7 +421,6 @@ function sortLinks() {
     var textarea = document.getElementById('sortLinks__textarea');
     var arrLinks = textarea.value.toLowerCase().replace(/https?:\/\//igm, '').match(/[^\s,]+/g).sort();
     var res = document.getElementById('sortLinks__answer');
-    var treeBtn = document.getElementById('sortLinks__Btn');
 
     for (var i = 0, linkLi, link; i < arrLinks.length; i++) {
         linkLi = document.createElement('li');
@@ -433,6 +431,4 @@ function sortLinks() {
         linkLi.appendChild(link);
         res.appendChild(linkLi);
     }
-    treeBtn.disabled = true;
-    textarea.disabled = true;
 }
