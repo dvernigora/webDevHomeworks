@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="icons/css/font-awesome.min.css">
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="script.js"></script>
+	<title>My landing page</title>
+</head>
+<body>
+<header>
+	<div id="logo">
+		<span id="logo__leftSide">N</span>
+		<span id="logo__rightSide">++</span>
+	</div>
+	<ul id="header__menu">
+		<li><a href="#linkBanner">PRODUCTS</a></li>
+		<li><a href="#linkContent">ABOUT US</a></li>
+		<li><a href="#linkFooter">CONTACT US</a></li>
+	</ul>
+</header>
+<div id="container__banner">
+	<div id="banner">
+		<a name="linkBanner"></a>
+
+		<a name="linkContent"></a>
+	</div>
+</div>
+<div id="content">
+	<div class="contentItems">
+		<div class="contentIcons">
+			<i class="fa fa-code fa-3x" aria-hidden="true"></i>
+		</div>
+		<div class="contentText"><h1>Web development</h1>Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit. Mauris consectetur, metus a venenatis semper, nisi dolor luctus est, quis convallis ante
+			nisi in erat. Nullam rutrum neque elit, quis iaculis!
+		</div>
+	</div>
+	<div class="contentItems">
+		<div class="contentIcons">
+			<i class="fa fa-android fa-3x" aria-hidden="true"></i>
+		</div>
+		<div class="contentText"><h1>Mobile development</h1>Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit. Sed pharetra mauris enim, at finibus orci pulvinar vitae. Vestibulum finibus leo non
+			bibendum scelerisque. Mauris et placerat elit, nec vehicula leo.
+		</div>
+	</div>
+	<div class="contentItems">
+		<div class="contentIcons">
+			<i class="fa fa-cloud fa-3x" aria-hidden="true"></i>
+		</div>
+		<div class="contentText"><h1>Hightload</h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			Sed ornare pharetra consectetur. Pellentesque quam augue, semper in nibh sit amet, cursus iaculis
+			ante. Integer vehicula efficitur sapien, nec dapibus justo.
+		</div>
+	</div>
+</div>
+<div id="container__footer">
+	<footer>
+		<a name="linkFooter"></a>
+		<div id="contentFooter">
+			<div>Contact us!</div>
+			<form class="contactForm">
+				<input type="text" id="contactForm__usrName" placeholder="Type here your name, please"/>
+				<input type="email" id="contactForm__usrEmail" placeholder="Type here your email, please"/>
+				<input type="tel" id="contactForm__usrTel" placeholder="Type here your phone, please"/>
+				<textarea id="contactForm__usrMessage" placeholder="Ask your question"></textarea>
+				<input type="submit" id="contactForm__sendMessageBtn" value="Send email!">
+				<!--круглях, чекбокс, цвет, дата, время, дата+время, месяц, неделя, номер,
+				от и до, поиск, url-->
+			</form>
+		</div>
+	</footer>
+</div>
+<div id="topBtn">Up ^</div>
+</body>
+</html>
