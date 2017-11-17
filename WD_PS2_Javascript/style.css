@@ -33,7 +33,7 @@ button {
 	border: 2px solid #f3f3f3;
 	border-radius: 10px;
 	outline: none;
-	width: 16%;
+	width: 125px;
 }
 
 button:hover {
@@ -62,7 +62,7 @@ input {
 }
 
 #ageOfTheStudent__Btn {
-	width: 19%;
+	width: 160px;
 }
 
 #sortLinks__Btn, #locationOfApartment__Btn {
@@ -74,12 +74,18 @@ input {
 	padding: 9px;
 }
 
-#differenceDates__firstInput, #differenceDates__secondInput {
-	box-sizing: border-box;
-	display: inline-flex;
-	margin-left: 4%;
-	margin-right: 3%;
-	width: 28%;
+#differenceDates__form {
+	width: 620px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.differenceDates__dateInput {
+	width: 180px;
+}
+
+.differenceDates__timeInput {
+	width: 120px;
 }
 
 label {
@@ -88,13 +94,14 @@ label {
 }
 
 .differenceDates__label {
-	display: inline-flex;
-	justify-content: center;
-	width: 35%;
+	width: 220px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 #zodiacSigns__input {
-	width: 17%;
+	width: 140px;
 }
 
 .wrapForLocationOfApartment__input {
@@ -146,4 +153,26 @@ label {
 	margin-top: 1%;
 	margin-bottom: 1%;
 	border: 1px solid black;
+}
+
+.sizeOfCheckerboard__label {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 200px;
+}
+
+.sizeOfCheckerboard__label input {
+	width: 100%;
+}
+
+#wrapperForInputsOfCheckerboard {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+.wrapForInputs__differenceDates {
+	display: flex;
+	flex-direction: column;
 }

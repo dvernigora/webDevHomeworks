@@ -8,7 +8,6 @@
 	<title>Hello JS!</title>
 	<link rel="stylesheet" href="reset.css">
 	<link rel="stylesheet" href="style.css">
-	<script src="script.js"></script>
 </head>
 <body>
 <div id="mainWrap">
@@ -16,13 +15,13 @@
 		<div class="wrapperForTask">
 			<p class="textOfTask">Want to know the sum of numbers from -1000 to 1000?</p>
 			<button onclick="sumOfNumbers()">Click me!</button>
-			<p class="textOfTask" id="sumOfNumbers__answer"></p>
+			<span id="resId__1" style="display: none"></span>
 		</div>
 		<div class="wrapperForTask">
 			<p class="textOfTask">Let's count the sum of numbers from -1000 to 1000, summing only numbers which ending
 				2, 3, and 7.</p>
 			<button onclick="sumOfNumbersOptionally()">Let's count</button>
-			<p class="textOfTask" id="sumOfNumbersOptionally__answer"></p>
+			<span id="resId__2" style="display: none"></span>
 		</div>
 		<div class="wrapperForTask" id="wrapperForChristmasTrees">
 			<p class="textOfTask">Let's build a Christmas trees!</p>
@@ -31,41 +30,64 @@
 		<div class="wrapperForTask">
 			<p class="textOfTask">You can convert seconds into hours!</p>
 			<input type="text" id="secondsIntoHours__input" onkeyup="secondsIntoHours()"/>
-			<p class="textOfTask" id="secondsIntoHours__answer"></p>
+			<span id="resId__4" style="display: none"></span>
 		</div>
 		<div class="wrapperForTask">
 			<p class="textOfTask">Enter your full age in digit:</p>
 			<input type="text" id="ageOfTheStudent__input"/>
 			<button id="ageOfTheStudent__Btn" onclick="countAgeOfTheStudent()">Show my age!</button>
-			<p class="textOfTask" id="ageOfTheStudent__answer"></p>
+			<span id="resId__5" style="display: none"></span>
 		</div>
 		<div class="wrapperForTask">
 			<p class="textOfTask">You can calculate the difference between two dates:</p>
-			<form>
-				<label for="differenceDates__firstInput" class="differenceDates__label">Enter the first date:</label>
-				<label for="differenceDates__secondInput" class="differenceDates__label">Enter a second date:</label>
-				<input type="datetime-local" id="differenceDates__firstInput" step="1"/>
-				<input type="datetime-local" id="differenceDates__secondInput" step="1"/>
+			<form id="differenceDates__form">
+				<div class="wrapForInputs__differenceDates">
+					<label class="differenceDates__label">Enter the first date:
+						<input type="date" id="differenceDates__firstDate" class="differenceDates__dateInput"
+							   placeholder="дд.мм.гггг"/>
+					</label>
+					<label class="differenceDates__label">Enter the time:
+						<input type="time" id="differenceDates__firstTime" class="differenceDates__timeInput"
+							   step="1" placeholder="--:--:--"/>
+					</label>
+				</div>
+
+				<div class="wrapForInputs__differenceDates">
+					<label class="differenceDates__label">Enter a second date:
+						<input type="date" id="differenceDates__secondDate" class="differenceDates__dateInput"
+							   placeholder="дд.мм.гггг"/>
+					</label>
+					<label class="differenceDates__label">Enter the time:
+						<input type="time" id="differenceDates__secondTime" class="differenceDates__timeInput"
+							   step="1" placeholder="--:--:--"/>
+					</label>
+				</div>
 			</form>
+
 			<button id="differenceBetweenTheDates__Btn" onclick="differenceBetweenTheDates()">Count</button>
-			<p class="textOfTask" id="differenceBetweenTheDates__answer"></p>
+			<span id="resId__6" style="display: none"></span>
 		</div>
 		<div class="wrapperForTask" id="wrapperForZodiacSigns">
 			<p class="textOfTask">You can find out the sign of the zodiac by entering the date of birth!</p>
-			<input type="date" id="zodiacSigns__input"/>
+			<input type="date" id="zodiacSigns__input" placeholder="дд.мм.гггг"/>
 			<button id="zodiacSigns__Btn" onclick="getZodiacSigns()">Show it!</button>
 			<img id="zodiacSignImg">
-			<p class="textOfTask" id="zodiacSigns__answer"></p>
+			<span id="resId__7" style="display: none"></span>
 		</div>
 		<div class="wrapperForTask" id="containerForCheckerboard">
 			<p class="textOfTask">Draw a checkerboard!</p>
-			<select id="listOfSizesCheckerboard" onchange="buildCheckerboard()">
-				<option selected="selected" value="0">Select size of chessboard</option>
-				<option value="2">2x2</option>
-				<option value="4">4x4</option>
-				<option value="8">8x8</option>
-			</select>
-			<div id="wrapperForCheckerboard"></div>
+			<div id="wrapperForInputsOfCheckerboard">
+				<label class="sizeOfCheckerboard__label">
+					Enter the number of cells in column:
+					<input type="number" id="checkerboard__input-column">
+				</label>
+				<label class="sizeOfCheckerboard__label">
+					Enter the number of cells in row:
+					<input type="number" id="checkerboard__input-row">
+				</label>
+			</div>
+			<button id="checkerboard__btn" onclick="buildCheckerboard()">Draw!</button>
+			<span id="resId__8" style="display: none"></span>
 		</div>
 		<div class="wrapperForTask">
 			<p class="textOfTask">Find out which entrance and which floor is the apartment:</p>
@@ -90,14 +112,14 @@
 				</div>
 			</form>
 			<button id="locationOfApartment__Btn" onclick="getLocationOfApartment()">Count</button>
-			<p class="textOfTask" id="locationOfApartment__answer"></p>
+			<span id="resId__9" style="display: none"></span>
 		</div>
 		<div class="wrapperForTask">
 			<p class="textOfTask">You can get sum of the digits entered number.</p>
 			<input type="text" id="sumOfTheDigitsEnteredNumber__input" onkeyup="sumOfTheDigitsEnteredNumber()"/>
-			<p class="textOfTask" id="sumOfTheDigitsEnteredNumber__answer"></p>
+			<span id="resId__10" style="display: none"></span>
 		</div>
-		<div class="wrapperForTask">
+		<div class="wrapperForTask" id="wrapperSortLinks">
 			<p class="textOfTask">You can sort the links in alphabetical order.</p>
 			<textarea id="sortLinks__textarea" cols="30" rows="10" maxlength="500"
 					  onkeyup="disableSortLinksTextarea()"></textarea>
@@ -106,5 +128,6 @@
 		</div>
 	</div>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
