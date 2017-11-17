@@ -258,7 +258,13 @@ function differenceBetweenTheDates() {
 }
 
 function getZodiacSigns() {
-    var zodiacSignDate = new Date(document.getElementById('zodiacSigns__input').value);
+    var zodiacSignValue = document.getElementById('zodiacSigns__input').value;
+
+    if (zodiacSignValue.indexOf('.') === 1 || zodiacSignValue.indexOf('.') === 2) {
+        zodiacSignValue = zodiacSignValue.split('.').reverse().join('-');
+    }
+
+    var zodiacSignDate = new Date(zodiacSignValue);
 
     removeResult(7);
     if (zodiacSignDate.toLocaleString() === 'Invalid Date') {
