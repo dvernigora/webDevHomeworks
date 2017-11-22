@@ -5,8 +5,6 @@
 	<link rel="stylesheet" href="reset.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="icons/css/font-awesome.min.css">
-	<script src="jquery-3.2.1.min.js"></script>
-	<script src="script.js"></script>
 	<title>My landing page</title>
 </head>
 <body>
@@ -17,16 +15,16 @@
 			<span id="logo__rightSide">++</span>
 		</div>
 		<ul id="header__menu">
-			<li><a href="#linkBanner">PRODUCTS</a></li>
-			<li><a href="#linkContent">ABOUT US</a></li>
-			<li><a href="#linkFooter">CONTACT US</a></li>
+			<li><a href="#linkBanner" class="scrollToElem">PRODUCTS</a></li>
+			<li><a href="#linkContent" class="scrollToElem">ABOUT US</a></li>
+			<li><a href="#linkFooter" class="scrollToElem">CONTACT US</a></li>
 		</ul>
 	</header>
 	<div id="container__banner">
 		<div id="banner">
-			<a name="linkBanner"></a>
+			<a id="linkBanner"></a>
 
-			<a name="linkContent"></a>
+			<a id="linkContent"></a>
 		</div>
 	</div>
 	<div id="content">
@@ -60,7 +58,7 @@
 	</div>
 	<div id="container__footer">
 		<footer>
-			<a name="linkFooter"></a>
+			<a id="linkFooter"></a>
 			<div id="contentFooter">
 				<div>Contact us!</div>
 				<form class="contactForm">
@@ -74,6 +72,8 @@
 		</footer>
 	</div>
 </div>
-<div id="topBtn">Up ^</div>
+<div id="toTop__Btn">Up ^</div>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

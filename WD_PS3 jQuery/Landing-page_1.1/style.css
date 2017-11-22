@@ -301,9 +301,9 @@ form textarea {
 	margin-top: -13.5%;
 }
 
-#topBtn {
-	bottom: 90%;
-	right: 1%;
+#toTop__Btn {
+	top: 20px;
+	right: 10px;
 	cursor: pointer;
 	display: none;
 	font-size: 160%;
