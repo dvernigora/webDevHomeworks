@@ -1,0 +1,66 @@
+.wrapper-for-option {
+	width: 200px;
+	height: 35px;
+	border-bottom: 1px solid #e6e6e6;
+	display: inline-flex;
+	align-items: center;
+}
+
+.remove-border {
+	border: 0;
+}
+
+.wrapper-for-option:hover {
+	cursor: pointer;
+	outline: #4d90fe auto;
+}
+
+.wrapper-for-icon__option {
+	width: 35px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon__option {
+	width: 30px;
+	height: 30px;
+}
+
+.text__option {
+	width: 140px;
+	font-family: Georgia, serif;
+	color: #585858;
+}
+
+.arrow__icon {
+	width: 20px;
+	height: 20px;
+}
+
+.wrapper-for-arrow {
+	width: 20px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.text__select-option {
+	width: 165px;
+	font-family: Georgia, serif;
+	color: #cbcbcb;
+	margin-left: 10px;
+}
+
+.container-for-dropdown {
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #94c8db;
+	border-radius: 5px;
+}
+
+.panel-for-dropdown {
+	display: flex;
+	flex-direction: column;
+}
