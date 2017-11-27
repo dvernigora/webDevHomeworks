@@ -1,0 +1,107 @@
+#main-wrap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background-color: #ecf0f1;
+}
+
+#main-container {
+	width: 50%;
+	background-color: #ecf0f1;
+}
+
+.wrapper-for-task {
+	min-height: 100px;
+	border: 2px solid #949494;
+	background-color: #f9f9f9;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px;
+	border-radius: 10px;
+	overflow-wrap: break-word;
+	text-align: center;
+	padding: 0 5% 0 5%;
+}
+
+button {
+	font-size: 130%;
+	background-color: #828181;
+	color: #f3f3f3;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	border: 2px solid #f3f3f3;
+	border-radius: 10px;
+	outline: none;
+	width: 125px;
+}
+
+button:hover {
+	border: 2px solid #949494;
+	transition: 0.2s;
+}
+
+button:focus {
+	outline: none;
+}
+
+.text-of-task {
+	color: #756d6d;
+	font-size: 125%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+input {
+	margin-bottom: 10px;
+	width: 15%;
+}
+
+label {
+	font-size: 117%;
+	color: #634949;
+}
+
+.wrapper-for-christmas-tree {
+	display: flex;
+	flex-direction: column;
+	align-items: baseline;
+}
+
+.checkerboard-cell__white {
+	width: 100%;
+	background-color: white;
+}
+
+.checkerboard-cell__black {
+	width: 100%;
+	background-color: black;
+}
+
+.wrapper-for-checkerboard {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	border: 1px solid black;
+}
+
+.size-of-checkerboard__label {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 200px;
+}
+
+.size-of-checkerboard__label input {
+	width: 100%;
+}
+
+#wrapper-forInputs-of-checkerboard {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+}
