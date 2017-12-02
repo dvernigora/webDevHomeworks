@@ -1,0 +1,78 @@
+html, body, .wrapper {
+	height: 100%;
+	background-color: #dede9f;
+}
+
+body, .wrapper, .container__form, .delimiter__form, .wrapper__form-label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+button {
+	background-color: #38383800;
+	width: 170px;
+	align-self: center;
+	border-radius: 8px;
+	padding: 10px;
+	font-size: 25px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+	border: 2px solid black;
+}
+
+button:hover, .wrapper__form-label:hover {
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 {
+	font-size: 35px;
+	font-family: cursive;
+	font-weight: bold;
+}
+
+img {
+	width: 150px;
+}
+
+.wrapper {
+	min-width: 800px;
+}
+
+.container__form {
+	min-width: 650px;
+	height: 600px;
+}
+
+.wrapper__form-label {
+	border: 2px solid #525252;
+	width: 250px;
+	min-height: 150px;
+	margin: 40px;
+	border-radius: 10px;
+}
+
+.wrapper__form {
+	display: flex;
+}
+
+.wrapper__radio-btn {
+	display: flex;
+	font-size: 25px;
+	margin-top: -25px;
+	font-family: cursive;
+	font-weight: bold;
+}
+
+.radio__btn {
+	display: flex;
+	align-self: center;
+	margin-right: 5px;
+}
+
+#pieCart_3d {
+	width: 800px;
+	height: 600px;
+	border: 2px solid black;
+}
