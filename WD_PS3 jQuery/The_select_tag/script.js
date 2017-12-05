@@ -6,6 +6,7 @@ $(document).ready(function () {
     const wrapperForArrow = $('.wrapper-for-arrow');
     const arrowIcon = $('.arrow__icon');
     const panel = $('.panel-for-dropdown');
+    const delayOfAnimation = 500;
 
     for (let i = 0, lengthOfArr = ARR_NAMES.length; i < lengthOfArr; i++) {
         let wrapperForOption = $('<div>').addClass('wrapper-for-option');
@@ -21,17 +22,23 @@ $(document).ready(function () {
     $('body').append(containerForDropdown);
 
     $('.wrapper-for-option').click(function () {
-        let delay = 500;
         if (panel.is(':visible')) {
             wrapperForArrow.remove();
             let elementClick = $(this).html();
             wrapperForDefaultOption.empty();
             wrapperForDefaultOption.append(elementClick, wrapperForArrow.append(arrowIcon));
-            panel.slideUp(delay);
+            panel.slideUp(delayOfAnimation);
             wrapperForDefaultOption.addClass('remove-border');
         } else {
-            panel.slideDown(delay);
+            panel.slideDown(delayOfAnimation);
             wrapperForDefaultOption.removeClass('remove-border');
+        }
+    });
+
+    $(document).click(function (event) {
+        if (panel.is(':visible') && !$(event.target).closest('.container-for-dropdown').length) {
+            panel.slideUp(delayOfAnimation);
+            wrapperForDefaultOption.addClass('remove-border');
         }
     });
 });
