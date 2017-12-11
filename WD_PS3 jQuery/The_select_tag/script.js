@@ -1,4 +1,10 @@
-const ARR_NAMES = ['Michael Johnson', 'Emma Williams', 'Daniel Brown', 'Sophia Bell', 'David Wilson'];
+const NAMES = {
+    'Michael Johnson': 'icons/1.png',
+    'Emma Williams': 'icons/2.png',
+    'Daniel Brown': 'icons/3.png',
+    'Sophia Bell': 'icons/4.png',
+    'David Wilson': 'icons/5.png'
+};
 
 $(document).ready(function () {
     const containerForDropdown = $('.container-for-dropdown');
@@ -6,20 +12,20 @@ $(document).ready(function () {
     const wrapperForArrow = $('.wrapper-for-arrow');
     const arrowIcon = $('.arrow__icon');
     const panel = $('.panel-for-dropdown');
-    const delayOfAnimation = 500;
+    const body = $('body');
+    const delayOfAnimation = 200;
 
-    for (let i = 0, lengthOfArr = ARR_NAMES.length; i < lengthOfArr; i++) {
+    for (let name in NAMES) {
         let wrapperForOption = $('<div>').addClass('wrapper-for-option');
         let wrapperForIconOption = $('<div>').addClass('wrapper-for-icon__option');
-        let iconOfOption = $('<img>').attr({'class': 'icon__option', 'src': ('icons/' + (i + 1) + '.png')});
-        let textOfOption = $('<span>').addClass('text__option').text(ARR_NAMES[i]);
-        if (i === lengthOfArr - 1) {
-            wrapperForOption.addClass('remove-border');
-        }
+        let iconOfOption = $('<img>').attr({class: 'icon__option', src: NAMES[name]});
+        let textOfOption = $('<span>').addClass('text__option').text(name);
+
         panel.append(wrapperForOption.append(wrapperForIconOption.append(iconOfOption), textOfOption));
     }
     containerForDropdown.append(panel);
-    $('body').append(containerForDropdown);
+
+    body.append(containerForDropdown);
 
     $('.wrapper-for-option').click(function () {
         if (panel.is(':visible')) {
@@ -35,7 +41,7 @@ $(document).ready(function () {
         }
     });
 
-    $(document).click(function (event) {
+    body.click(function (event) {
         if (panel.is(':visible') && !$(event.target).closest('.container-for-dropdown').length) {
             panel.slideUp(delayOfAnimation);
             wrapperForDefaultOption.addClass('remove-border');
