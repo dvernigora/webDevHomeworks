@@ -1,10 +1,10 @@
-const NAMES = {
-    'Michael Johnson': 'icons/1.png',
-    'Emma Williams': 'icons/2.png',
-    'Daniel Brown': 'icons/3.png',
-    'Sophia Bell': 'icons/4.png',
-    'David Wilson': 'icons/5.png'
-};
+const NAMES = [
+    {'Michael Johnson': 'icons/1.png'},
+    {'Emma Williams': 'icons/2.png'},
+    {'Daniel Brown': 'icons/3.png'},
+    {'Sophia Bell': 'icons/4.png'},
+    {'David Wilson': 'icons/5.png'}
+    ];
 
 $(document).ready(function () {
     const containerForDropdown = $('.container-for-dropdown');
@@ -15,13 +15,15 @@ $(document).ready(function () {
     const body = $('body');
     const delayOfAnimation = 200;
 
-    for (let name in NAMES) {
-        let wrapperForOption = $('<div>').addClass('wrapper-for-option');
-        let wrapperForIconOption = $('<div>').addClass('wrapper-for-icon__option');
-        let iconOfOption = $('<img>').attr({class: 'icon__option', src: NAMES[name]});
-        let textOfOption = $('<span>').addClass('text__option').text(name);
+    for (var i = 0, length = NAMES.length; i < length; i++) {
+        for (let name in NAMES[i]) {
+            let wrapperForOption = $('<div>').addClass('wrapper-for-option');
+            let wrapperForIconOption = $('<div>').addClass('wrapper-for-icon__option');
+            let iconOfOption = $('<img>').attr({class: 'icon__option', src: NAMES[i][name]});
+            let textOfOption = $('<span>').addClass('text__option').text(name);
 
-        panel.append(wrapperForOption.append(wrapperForIconOption.append(iconOfOption), textOfOption));
+            panel.append(wrapperForOption.append(wrapperForIconOption.append(iconOfOption), textOfOption));
+        }
     }
     containerForDropdown.append(panel);
 
@@ -34,17 +36,17 @@ $(document).ready(function () {
             wrapperForDefaultOption.empty();
             wrapperForDefaultOption.append(elementClick, wrapperForArrow.append(arrowIcon));
             panel.slideUp(delayOfAnimation);
-            wrapperForDefaultOption.addClass('remove-border');
+            wrapperForDefaultOption.toggleClass('remove-border');
         } else {
             panel.slideDown(delayOfAnimation);
-            wrapperForDefaultOption.removeClass('remove-border');
+            wrapperForDefaultOption.toggleClass('remove-border');
         }
     });
 
     body.click(function (event) {
         if (panel.is(':visible') && !$(event.target).closest('.container-for-dropdown').length) {
             panel.slideUp(delayOfAnimation);
-            wrapperForDefaultOption.addClass('remove-border');
+            wrapperForDefaultOption.toggleClass('remove-border');
         }
     });
 });
