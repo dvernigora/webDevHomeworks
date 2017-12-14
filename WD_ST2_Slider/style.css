@@ -1,0 +1,27 @@
+.slider {
+  text-align: center; 
+}
+
+.slider .slider-indicators {
+  padding: 0;
+}
+
+.slider .slider-previews li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 1rem;
+  vertical-align: middle;
+}
+
+.slider .slider-previews li img {
+  display: block;
+}
+
+.wrapper-item__previews {
+    border: 5px solid transparent;
+}
+
+.current {
+  border: 5px solid rgba(0,0,0,0.2);
+}
+
