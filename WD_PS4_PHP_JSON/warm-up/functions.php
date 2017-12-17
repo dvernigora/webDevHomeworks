@@ -47,7 +47,7 @@ function buildChristmasTree()
 function sumOfTheDigitsEnteredNumber()
 {
     if (isset($_POST['sum-of-digits-entered-number'])) {
-        $inputValue = $_POST['sum-of-digits-entered-number__input'];
+        $inputValue = $_POST['sum-of-digits__input'];
 
         if (!is_numeric($inputValue)) {
             return 'Incorrect data. Enter the integer.';
