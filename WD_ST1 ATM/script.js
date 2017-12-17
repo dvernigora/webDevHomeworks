@@ -15,7 +15,7 @@ var ATM = {
 
     // authorization
     auth: function (number, pin) {
-        if (this.isAuth('user') || this.isAuth('admin')) {
+        if (this.is_auth) {
             return console.log('you are already logged in as ' + this.current_type + '. Account number: ' +
                 this.current_user.number + '. Log out of current account please.');
         } else {
@@ -40,25 +40,25 @@ var ATM = {
         }
     },
 
-    isAuth: function (type) {
+    isAuthByUserType: function (type) {
         return this.current_type === type;
     },
 
     isValidNum: function (data) {
-        if (!isNaN(+data)) {
+        if (!isNaN(+data) && (typeof data) !== 'boolean') {
             return true;
         }
         return console.log('Wrong data. Enter the correct number.');
     },
 
     notificationOfAuthorization: function (type) {
-        if (!this.isAuth('user') && !this.isAuth('admin')) {
+        if (!this.isAuthByUserType('user') && !this.isAuthByUserType('admin')) {
             console.log('Enter account number and pin code.');
             return null;
-        } else if (this.isAuth('admin') && type !== 'admin') {
+        } else if (this.isAuthByUserType('admin') && type !== 'admin') {
             console.log('You are authorized as an administrator. This option is available only for users.');
             return null;
-        } else if (this.isAuth('user') && type !== 'user') {
+        } else if (this.isAuthByUserType('user') && type !== 'user') {
             console.log('You are authorized as an user. This option is available only for administrator.');
             return null;
         }
@@ -66,7 +66,7 @@ var ATM = {
 
     // check current debet
     check: function () {
-        if (!this.isAuth('user') && !this.isAuth('admin')) {
+        if (!this.isAuthByUserType('user') && !this.isAuthByUserType('admin')) {
             return console.log('Enter account number and pin code.');
         }
         this.reportOfLastActions.push({
@@ -136,19 +136,13 @@ var ATM = {
     // get report about cash actions - available for admin only - EXTENDED
     getReport: function () {
         if (this.notificationOfAuthorization('admin') !== null) {
-            for (var i = 0, length = this.reportOfLastActions.length; i < length; i++) {
-                let strTmp = '';
-                for (var key in this.reportOfLastActions[i]) {
-                    strTmp += key + " : " + this.reportOfLastActions[i][key] + ' | ';
-                }
-                console.log(strTmp);
-            }
+            console.table(this.reportOfLastActions);
         }
     },
 
     // log out
     logout: function () {
-        if (!this.isAuth('user') && !this.isAuth('admin')) {
+        if (!this.isAuthByUserType('user') && !this.isAuthByUserType('admin')) {
             return console.log('Before logging out, you must log into the system.');
         }
         this.reportOfLastActions.push({
