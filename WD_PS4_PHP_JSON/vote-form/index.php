@@ -14,7 +14,7 @@
 <body>
 <div class="wrapper">
 	<form class="container__form" method="POST">
-		<h1>Choose your zodiac sign:</h1>
+		<h1>Choose your psycho-type:</h1>
 		<div class="wrapper__form">
 			<div class="delimiter__form">
 				<label class="wrapper__form-label">
