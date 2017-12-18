@@ -302,6 +302,8 @@ form textarea {
 }
 
 #toTop__Btn {
+  border: none;
+  outline: none;
   top: 20px;
   right: 10px;
   cursor: pointer;
