@@ -1,0 +1,146 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #b9c783;
+}
+
+@font-face {
+  font-family: Pacifico;
+  src: url('../fonts/Pacifico/Pacifico.ttf');
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
+}
+
+h1 {
+  font-family: Pacifico, serif;
+  color: #fffecd;
+  font-size: 80px;
+  margin-bottom: 80px;
+}
+
+header {
+  width: 100%;
+  height: 10px;
+  margin-bottom: 130px;
+}
+
+.wrapper-for-colors {
+  display: flex;
+  height: 100%;
+}
+
+.container-for-color__header {
+  width: 10%;
+  height: 100%;
+}
+
+.wrapper-for-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 660px;
+  min-height: 600px;
+}
+
+#login__form {
+  display: flex;
+  flex-direction: column;
+  min-width: 330px;
+}
+
+button, .label-login__form, .login-form__input, .error-message {
+  font-family: Montserrat, serif;
+}
+
+button {
+  background-color: #635960;
+  border: none;
+  color: #fffecd;
+  padding: 10px 32px;
+  text-align: center;
+  font-size: 150%;
+  margin-top: 15px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.wrapper-for-shadow__btn {
+  position: absolute;
+  overflow: hidden;
+  margin-top: -49px;
+  width: 450px;
+  height: 350px;
+}
+
+.shadow__btn {
+  margin-top: -15px;
+  margin-left: 42px;
+  width: 326px;
+  height: 300px;
+  background: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0));
+  transform: rotate(340deg);
+  box-sizing: border-box;
+}
+
+.label-login__form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #635960;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.error-message {
+  color: #b31a28bd;
+  font-weight: bold;
+  margin-top: -15px;
+  height: 17px;
+}
+
+.login-form__input {
+  color: #7bc3ab;
+  background-color: #fffecd;
+  box-sizing: border-box;
+  border: none;
+  padding: 10px 15px;
+  font-size: 130%;
+  margin-top: 10px;
+  width: 100%;
+}
+
+#messages__form {
+  width: 100%;
+  margin-top: -40px;
+}
+
+.window-messages {
+  height: 330px;
+  margin-bottom: 25px;
+  background-color: #fffecd;
+  overflow-y: scroll;
+}
+
+.wrapper-for-textfield-and-btn {
+  display: inline-flex;
+}
+
+.textfield {
+  height: 50px;
+  width: 500px;
+  margin-right: 30px;
+  background-color: #fffecd;
+  border: none;
+}
+
+.sendMessage__btn {
+  width: 130px;
+  margin: 0;
+}
