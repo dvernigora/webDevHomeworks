@@ -1,0 +1,319 @@
+@font-face {
+  font-family: Kaushan Script;
+  src: url('perth_template/fonts/KaushanScript-Regular.otf');
+}
+
+@font-face {
+  font-family: BLACKJAR;
+  src: url('perth_template/fonts/BLACKJAR.TTF');
+}
+
+@font-face {
+  font-family: Proxima Nova;
+  src: url('perth_template/fonts/Proxima Nova Light.otf');
+}
+
+@font-face {
+  font-family: Proxima Nova Bold;
+  src: url('perth_template/fonts/Proxima Nova Bold.otf');
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 940px;
+  margin: 0 auto;
+}
+
+header, section, footer {
+  width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+header, section {
+  min-height: 650px;
+}
+
+header {
+  background: #4eacdd url("perth_template/blue-pattern.jpg");
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+  color: #02aae8;
+  box-sizing: content-box;
+  border-bottom: 5px solid #00abe9;
+  box-shadow: 15px 12px 0 -2px #01b1ea;
+}
+
+.logo p {
+  font-size: 50px;
+  font-family: Kaushan Script, serif;
+}
+
+.img__header {
+  margin-left: 70px;
+  margin-top: -40px;
+  width: 230px;
+  height: 270px;
+  background: url("perth_template/iphone.png") no-repeat;
+}
+
+.wrapper-menu-and-logo__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.wrapper-hamburger-menu {
+  width: 30px;
+  height: 30px;
+  margin-top: 38px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper-hamburger-menu span {
+  background-color: white;
+  height: 4px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+.wrapper-text-and-btn__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.wrapper-text-and-btn__header h1 {
+  font-family: BLACKJAR, serif;
+  font-size: 70px;
+  color: white;
+  margin-top: 45px;
+  margin-right: -5px;
+}
+
+.wrapper-text-and-btn__header h4 {
+  margin-top: 20px;
+  font-family: Proxima Nova, serif;
+  color: white;
+  font-size: 220%;
+}
+
+.bold-text {
+  font-family: Proxima Nova Bold, serif;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.download__btn {
+  margin-top: 45px;
+  background-color: #00c3e9;
+  color: white;
+  padding: 15px 28px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 2px;
+  font-family: "Proxima Nova", serif;
+  font-size: 94%;
+  line-height: 24px;
+  outline: none;
+}
+
+.fa-cloud-download {
+  margin-left: 14px;
+}
+
+.fa-envelope {
+  margin-left: 18px;
+}
+
+.first-section__content {
+  flex-direction: row;
+  background-color: #f4f4f4;
+}
+
+.wrapper-content__first-section {
+  margin-top: 138px;
+  margin-left: 17.5%;
+  width: 59.5%;
+}
+
+.wrapper-content__first-section h2 {
+  font-family: "Proxima Nova", serif;
+  font-size: 240%;
+  color: #545454;
+  margin-bottom: 30px;
+}
+
+.wrapper-content__first-section p {
+  font-family: "Proxima Nova", serif;
+  font-size: 107%;
+  color: #7e7e7e;
+  margin-bottom: 21px;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+.wrapper__block-qoute {
+  display: flex;
+  flex-direction: row;
+  height: 73px;
+  font-style: italic;
+}
+
+.border__block-qoute {
+  width: 17px;
+  margin-right: 17px;
+  background-color: #00aee0;
+}
+
+.first-section__img {
+  margin-top: 152px;
+  height: 499px;
+  width: 347px;
+  background: url("perth_template/ipad.png") no-repeat;
+}
+
+.second-section__img {
+  margin-top: 272px;
+  margin-left: -79px;
+  height: 515px;
+  width: 1600px;
+  background: url("perth_template/devices.png") no-repeat;
+}
+
+.send-mail__btn {
+  margin-top: 70px;
+  background-color: #f4f4f4;
+  color: #02b28e;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #01b08f;
+  border-radius: 2px;
+  font-family: "Proxima Nova", serif;
+  font-size: 94%;
+  line-height: 24px;
+  outline: none;
+}
+
+.second-section__content {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.wrapper-content__second-section {
+  color: #545454;
+  width: 400px;
+  margin-top: 99px;
+  margin-left: -59px;
+  font-family: "Proxima Nova", serif;
+}
+
+.wrapper-content__second-section h2 {
+  font-size: 234%;
+  margin-bottom: 30px;
+}
+
+.wrapper-content__second-section p {
+  margin-top: 25px;
+  font-size: 104%;
+  line-height: 25px;
+}
+
+.wrapper__block-qoute__second-section {
+  margin-top: 10px;
+}
+
+.fa-dribbble {
+  margin-left: 15px;
+}
+
+.view-on-dribbble__btn {
+  margin-top: 57px;
+  background-color: #ffffff;
+  color: #ea4c89;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #ff4b8c;
+  border-radius: 2px;
+  font-family: "Proxima Nova", serif;
+  font-size: 94%;
+  font-weight: 600;
+  line-height: 24px;
+  outline: none;
+}
+
+.donation__section {
+  justify-content: center;
+  min-height: 325px;
+  background: #0fad8c url("perth_template/green-pattern.jpg");
+}
+
+.donation-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 135px;
+}
+
+.donation-content h3 {
+  font-family: "Proxima Nova", serif;
+  font-size: 258%;
+  color: white;
+}
+
+.donate__btn {
+  background-color: #01c2ad;
+  color: white;
+  padding: 16px 37px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 2px;
+  font-family: "Proxima Nova", serif;
+  font-size: 94%;
+  font-weight: 600;
+  line-height: 24px;
+  outline: none;
+}
+
+.reset-margin {
+  margin: 0 auto;
+}
+
+.fa-beer {
+  margin-left: 15px;
+}
+
+.social-icons {
+
+}
+
+.mail-subscription {
+
+}
+
+.mail-subscription label:after {
+  content: "|";
+  margin-left: -50px;
+}
