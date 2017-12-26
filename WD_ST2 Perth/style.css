@@ -305,15 +305,44 @@ header {
   margin-left: 15px;
 }
 
-.social-icons {
+.social-icons {display: flex;justify-content: center;}
 
+.social-icons li {width: 55px;height: 55px;border: 3px solid black;display: flex;align-items: center;justify-content: center;border-radius: 100%;margin: 18px;}
+
+.social-icons__size {
+  font-size: 35px;
 }
 
-.mail-subscription {
-
+.mail-subscription label {
+ display: inline-flex;
 }
 
 .mail-subscription label:after {
   content: "|";
   margin-left: -50px;
 }
+
+.container__subscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 200px;
+}
+
+.subscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+}
+
+.user-email__input {
+  width: 85%;
+  height: 42px;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+}
+
