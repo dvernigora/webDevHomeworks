@@ -34,6 +34,8 @@ function authorization() {
         const USER_PASSWORD = USER_PASSWORD_INPUT.val();
         let errorMessage = $('.error-message');
 
+        console.log(SELF_VALUES);
+
         if (isEmptyStr(USER_NAME) || isEmptyStr(USER_PASSWORD)) {
             if (isEmptyStr(USER_NAME)) {
                 addClassWithTimeout(USER_NAME_INPUT, 'animated shake');
@@ -81,4 +83,3 @@ function addClassWithTimeout(obj, nameOfClass) {
 function isEmptyStr(str) {
     return (!str || 0 === str.length);
 }
-

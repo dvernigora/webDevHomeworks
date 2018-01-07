@@ -38,6 +38,10 @@ header, section, footer {
   flex-direction: column;
 }
 
+footer {
+  min-height: 100px;
+}
+
 header, section {
   min-height: 650px;
 }
@@ -56,6 +60,7 @@ header {
   box-sizing: content-box;
   border-bottom: 5px solid #00abe9;
   box-shadow: 15px 12px 0 -2px #01b1ea;
+  cursor: pointer;
 }
 
 .logo p {
@@ -83,6 +88,7 @@ header {
   margin-top: 38px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .wrapper-hamburger-menu span {
@@ -305,21 +311,66 @@ header {
   margin-left: 15px;
 }
 
-.social-icons {display: flex;justify-content: center;}
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
 
-.social-icons li {width: 55px;height: 55px;border: 3px solid black;display: flex;align-items: center;justify-content: center;border-radius: 100%;margin: 18px;}
+.social-icons li {
+  width: 55px;
+  height: 55px;
+  border: 3px solid #575757;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  margin: 18px;
+  color: #575757;
+}
+
+.no-decoration__link {
+  text-decoration: none;
+  color: #575757;
+}
 
 .social-icons__size {
   font-size: 35px;
 }
 
+.mail-subscription {
+  height: 73px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .mail-subscription label {
- display: inline-flex;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.mail-subscription i {
+  margin-left: 20px;
+  color: #00c7eb;
+}
+
+.subscription-text {
+  font-family: Proxima Nova Bold, serif;
+  font-style: italic;
+  font-size: 105%;
+  margin-left: -20px;
+  color: #575757;
 }
 
 .mail-subscription label:after {
   content: "|";
-  margin-left: -50px;
+  font-weight: bold;
+  margin-left: -80px;
+  color: #E1E1E1;
+  font-size: 90%;
 }
 
 .container__subscription {
@@ -339,10 +390,61 @@ header {
 }
 
 .user-email__input {
-  width: 85%;
-  height: 42px;
+  width: 217px;
+  height: 43px;
   border: none;
   background-color: white;
   border-radius: 10px;
+  padding-left: 20px;
 }
 
+.user-email__input::placeholder {
+  font-family: Proxima Nova bold, serif;
+  font-weight: bold;
+  font-style: italic;
+  color: #E1E1E1;
+  font-size: 90%;
+}
+
+.container__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text__footer {
+  font-family: Proxima Nova, serif;
+  font-size: 84%;
+  font-style: italic;
+  margin-top: 11px;
+  margin-left: 10.5%;
+}
+
+.btn-up {
+  margin-top: 7px;
+  margin-right: 56px;
+  align-self: center;
+  background-color: #f4f4f4;
+  color: #575757;
+  width: 45px;
+  height: 45px;
+  border: 2px solid white;
+  border-radius: 10px;
+  outline: none;
+  font-size: 140%;
+}
+
+.direction-row {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1260px) {
+  
+  header, section, footer {
+    width: 100%;
+  }
+  
+  .container {
+    width: 75%;
+  }
+}
