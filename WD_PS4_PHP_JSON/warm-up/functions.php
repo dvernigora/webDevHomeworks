@@ -7,8 +7,6 @@ function sumOfNumbers()
             $res += $i;
         }
         return 'Check this out! The answer is - ' . $res;
-    } else {
-        return '';
     }
 }
 
@@ -17,14 +15,13 @@ function sumOfNumbersOptionally()
     if (isset($_POST['sum-of-numbers-optionally'])) {
         $res = 0;
         for ($i = -1000; $i <= 1000; $i++) {
-            $isRequiredNumber = (abs($i) % 10) === 2 || (abs($i) % 10) === 3 || (abs($i) % 10) === 7;
+            $abs = abs($i);
+            $isRequiredNumber = ($abs % 10) === 2 || ($abs % 10) === 3 || ($abs % 10) === 7;
             if ($isRequiredNumber) {
                 $res += $i;
             }
         }
         return 'Wouldn\'t believe it! It\'s again - ' . $res;
-    } else {
-        return '';
     }
 }
 
@@ -39,8 +36,6 @@ function buildChristmasTree()
             }
         }
         return $res;
-    } else {
-        return '';
     }
 }
 
@@ -73,4 +68,3 @@ function getRandArr()
     }
 }
 
-?>

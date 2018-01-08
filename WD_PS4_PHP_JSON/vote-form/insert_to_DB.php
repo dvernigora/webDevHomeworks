@@ -4,9 +4,7 @@ if (isset($_POST['getVote'])) {
     $data = json_decode(file_get_contents('data.json'), true);
     $data[$resOfVote]++;
     $pretty = json_encode($data, JSON_PRETTY_PRINT);
-    $fp = fopen('data.json', "w");
-    fputs($fp, $pretty);
-    fclose($fp);
+    file_put_contents('data.json', $pretty);
     header('Location: statistics.php');
 }
-?>
+

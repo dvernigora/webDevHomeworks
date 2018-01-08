@@ -12,11 +12,12 @@ body, .wrapper, .container__form, .delimiter__form, .wrapper__form-label {
 
 button {
 	background-color: #38383800;
+	height: 70px;
 	width: 170px;
 	align-self: center;
 	border-radius: 8px;
 	padding: 10px;
-	font-size: 25px;
+	font-size: 26px;
 	cursor: pointer;
 	transition-duration: 0.4s;
 	border: 2px solid black;
@@ -42,33 +43,28 @@ img {
 
 .container__form {
 	min-width: 650px;
-	height: 600px;
+	min-height: 600px;
+	max-height: 600px;
 }
 
 .wrapper__form-label {
 	border: 2px solid #525252;
 	width: 250px;
-	min-height: 150px;
+	height: 300px;
 	margin: 40px;
 	border-radius: 10px;
+	font-size: 25px;
+	font-family: cursive;
+	font-weight: bold;
 }
 
 .wrapper__form {
 	display: flex;
 }
 
-.wrapper__radio-btn {
-	display: flex;
-	font-size: 25px;
-	margin-top: -25px;
-	font-family: cursive;
-	font-weight: bold;
-}
-
 .radio__btn {
 	display: flex;
-	align-self: center;
-	margin-right: 5px;
+	margin-top: -25px;
 }
 
 #pieCart_3d {
@@ -76,3 +72,4 @@ img {
 	height: 600px;
 	border: 2px solid black;
 }
+
