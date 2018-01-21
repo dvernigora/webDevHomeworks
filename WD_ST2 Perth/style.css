@@ -32,7 +32,7 @@ body, html {
 }
 
 header, section, footer {
-  width: 1260px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -151,12 +151,13 @@ header {
 
 .first-section__content {
   flex-direction: row;
+  background: url("perth_template/ipad.png") no-repeat;
+  background-position: right 90px top 150px;
   background-color: #f4f4f4;
 }
 
 .wrapper-content__first-section {
-  margin-top: 138px;
-  margin-left: 17.5%;
+  margin-top: 140px;
   width: 59.5%;
 }
 
@@ -189,13 +190,6 @@ header {
   background-color: #00aee0;
 }
 
-.first-section__img {
-  margin-top: 152px;
-  height: 499px;
-  width: 347px;
-  background: url("perth_template/ipad.png") no-repeat;
-}
-
 .second-section__img {
   margin-top: 272px;
   margin-left: -79px;
@@ -205,10 +199,10 @@ header {
 }
 
 .send-mail__btn {
-  margin-top: 70px;
+  margin-top: 67px;
   background-color: #f4f4f4;
   color: #02b28e;
-  padding: 15px 30px;
+  padding: 15px 31px;
   text-align: center;
   text-decoration: none;
   border: 2px solid #01b08f;
@@ -223,19 +217,21 @@ header {
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  background: url(perth_template/devices.png) no-repeat;
+  background-position: 83px 273px;
 }
 
 .wrapper-content__second-section {
   color: #545454;
   width: 400px;
-  margin-top: 99px;
-  margin-left: -59px;
+  margin-top: 95px;
+  float: right;
   font-family: "Proxima Nova", serif;
 }
 
 .wrapper-content__second-section h2 {
-  font-size: 234%;
-  margin-bottom: 30px;
+  font-size: 244%;
+  margin-bottom: 33px;
 }
 
 .wrapper-content__second-section p {
@@ -253,10 +249,11 @@ header {
 }
 
 .view-on-dribbble__btn {
-  margin-top: 57px;
+  margin-top: 55px;
+  margin-left: 5px;
   background-color: #ffffff;
   color: #ea4c89;
-  padding: 15px 30px;
+  padding: 15px 31px;
   text-align: center;
   text-decoration: none;
   border: 2px solid #ff4b8c;
@@ -448,3 +445,4 @@ header {
     width: 75%;
   }
 }
+
