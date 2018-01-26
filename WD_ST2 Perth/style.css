@@ -42,7 +42,7 @@ footer {
   min-height: 100px;
 }
 
-header, section {
+header, .first-section__content, .second-section__content {
   min-height: 650px;
 }
 
@@ -435,14 +435,35 @@ header {
   flex-direction: row;
 }
 
-@media screen and (max-width: 1260px) {
-  
+@media screen and (max-width: 1366px) {
   header, section, footer {
     width: 100%;
   }
+
+  .second-section__container {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .second-section__content {
+    background-position: -35px 273px;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .wrapper-content__first-section {
+    width: 43.5%;
+  }
   
-  .container {
-    width: 75%;
+  .second-section__content {
+    background-position: -35px 70px;
+    min-height: 500px;
+  }
+
+  .wrapper-content__second-section {
+    margin-right: -50px;
+    margin-top: 50px;
   }
 }
 
