@@ -1,5 +1,5 @@
 const SELF_PATH = window.location.href;
-const PATH_TO_DB = window.location.href + 'db/data.json';
+const PATH_TO_DB = SELF_PATH + 'db/data.json';
 const PATH_TO_PHP = SELF_PATH + 'init_DB.php';
 const WRAPPER_IMAGE = $('.wrapper__image');
 
