@@ -10,13 +10,9 @@ function drawColoredRow() {
     const ARR_LENGTH = ARR_OF_COLORS.length;
     for (let i = 0; i < 2; i++) {
         for (let indexOfColor in ARR_OF_COLORS) {
-            indexOfColor = +indexOfColor;
+         
             let colorContainer = $('<div>').addClass('container-for-color__header');
-            if (i === 0 && indexOfColor === 0 || i === 1 && indexOfColor === (ARR_LENGTH - 1)) {
-                colorContainer.css({'background-color': ARR_OF_COLORS[indexOfColor], 'width': '16.5%'});
-            } else {
-                colorContainer.css('background-color', ARR_OF_COLORS[indexOfColor]);
-            }
+            colorContainer.css('background-color', ARR_OF_COLORS[indexOfColor]);
             WRAPPER_FOR_COLORS.append(colorContainer);
         }
     }
@@ -25,7 +21,8 @@ function drawColoredRow() {
 }
 
 function authorization() {
-    $('#login__form').submit(function () {
+    $('#login__form').submit(function (e) {
+        e.preventDefault();
         const SELF = $(this);
         const SELF_VALUES = SELF.serialize();
         const USER_NAME_INPUT = $('#user-name');
@@ -33,8 +30,6 @@ function authorization() {
         const USER_NAME = USER_NAME_INPUT.val();
         const USER_PASSWORD = USER_PASSWORD_INPUT.val();
         let errorMessage = $('.error-message');
-
-        console.log(SELF_VALUES);
 
         if (isEmptyStr(USER_NAME) || isEmptyStr(USER_PASSWORD)) {
             if (isEmptyStr(USER_NAME)) {
@@ -54,9 +49,14 @@ function authorization() {
             url: 'login.php',
             data: SELF_VALUES,
             success: function (responseMsg) {
+                // {
+                //     errror: '',
+                //     message: '',
+                //     status: ''
+                // }
                 if (responseMsg === 'registration confirmed') {
                     addClassWithTimeout(SELF, 'animated bounceOutDown');
-                    window.location = "chat.html";
+                    window.location = "chat.php";
                 } else if (responseMsg === 'Wrong password.') {
                     addClassWithTimeout(USER_PASSWORD_INPUT, 'animated shake');
                     errorMessage.text(responseMsg);
@@ -75,9 +75,7 @@ function addClassWithTimeout(obj, nameOfClass) {
     if (obj.hasClass(nameOfClass)) {
         obj.removeClass(nameOfClass);
     }
-    setTimeout(function () {
-        obj.addClass(nameOfClass)
-    }, 10);
+    obj.addClass(nameOfClass)
 }
 
 function isEmptyStr(str) {

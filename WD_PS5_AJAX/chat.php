@@ -1,3 +1,10 @@
+<?php
+//include_once('messenger.php');
+if (!isset($_COOKIE['userName'])) {
+    header('location: index.php');
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +15,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/jquery.toastmessage.css">
     <title>Easy chat</title>
 </head>
 <body>
@@ -22,12 +30,22 @@
             <label>
                 <input type="text" class="textfield">
             </label>
-            <button name="sendMessage" class="sendMessage__btn" type="submit">Send</button>
+            <input name="sendMessage" class="sendMessage__btn" type="submit" 
+            value="Send"></input>
         </div>
     </form>
 </div>
 <script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery.toastmessage.js"></script>
 <script src="js/script.js"></script>
+<script src="js/init_messages.js"></script>
+<script> 
+    $().toastmessage('showToast', {
+        text     : '<?= $_COOKIE['userName']; ?>' + ' добро пожаловать!',
+        position : 'top-left',
+        type     : 'success'
+    });
+</script>
 </body>
 </html>
 

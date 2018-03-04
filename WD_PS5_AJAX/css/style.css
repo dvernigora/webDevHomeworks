@@ -20,8 +20,8 @@ html, body {
 h1 {
   font-family: Pacifico, serif;
   color: #fffecd;
-  font-size: 80px;
-  margin-bottom: 80px;
+  font-size: 460%;
+  margin-bottom: 70px;
 }
 
 header {
@@ -51,21 +51,22 @@ header {
 #login__form {
   display: flex;
   flex-direction: column;
-  min-width: 330px;
+  min-width: 310px;
 }
 
-button, .label-login__form, .login-form__input, .error-message {
+.login__btn, .sendMessage__btn, .label-login__form, 
+.login-form__input, .error-message {
   font-family: Montserrat, serif;
 }
 
-button {
+.login__btn, .sendMessage__btn {
   background-color: #635960;
   border: none;
   color: #fffecd;
   padding: 10px 32px;
   text-align: center;
-  font-size: 150%;
-  margin-top: 15px;
+  font-size: 135%;
+  margin-top: 10px;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -74,15 +75,15 @@ button {
 .wrapper-for-shadow__btn {
   position: absolute;
   overflow: hidden;
-  margin-top: -49px;
+  margin-top: -46px;
   width: 450px;
   height: 350px;
 }
 
 .shadow__btn {
-  margin-top: -15px;
-  margin-left: 42px;
-  width: 326px;
+  margin-top: -17px;
+  margin-left: 43px;
+  width: 305px;
   height: 300px;
   background: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0));
   transform: rotate(340deg);
@@ -96,6 +97,7 @@ button {
   color: #635960;
   margin-bottom: 25px;
   font-weight: bold;
+  font-size: 94%;
 }
 
 .error-message {
@@ -110,7 +112,7 @@ button {
   background-color: #fffecd;
   box-sizing: border-box;
   border: none;
-  padding: 10px 15px;
+  padding: 8px 15px;
   font-size: 130%;
   margin-top: 10px;
   width: 100%;
@@ -126,6 +128,8 @@ button {
   margin-bottom: 25px;
   background-color: #fffecd;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper-for-textfield-and-btn {
@@ -144,3 +148,5 @@ button {
   width: 130px;
   margin: 0;
 }
+
+

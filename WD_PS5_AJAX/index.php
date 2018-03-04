@@ -27,7 +27,7 @@
         </label>
         <span class="error-message"></span>
         <div class="wrapper-for-btn">
-            <button name="submitBtn" type="submit">Submit</button>
+            <input name="submitBtn" type="submit" class="login__btn" value="Submit"></input>
             <div class="wrapper-for-shadow__btn">
                 <div class="shadow__btn"></div>
             </div>

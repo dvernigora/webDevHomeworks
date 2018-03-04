@@ -39,6 +39,7 @@ function react_of_dblclick_on_field() {
         let yCoord = e.pageY - pos.top;
 
         let messageBubble = add_message_bubble(xCoord, yCoord);
+        
         let currentInput = WRAPPER_IMAGE.find('.message-bubble__input');
         currentInput.focus();
 
