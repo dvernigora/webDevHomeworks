@@ -26,6 +26,12 @@ body, html {
   flex-direction: column;
 }
 
+.wrapper {
+  display: flex;
+  width: 1400px;
+  margin: 0 auto;
+}
+
 .container {
   width: 940px;
   margin: 0 auto;
@@ -69,11 +75,8 @@ header {
 }
 
 .img__header {
-  margin-left: 70px;
-  margin-top: -40px;
-  width: 230px;
-  height: 270px;
   background: url("perth_template/iphone.png") no-repeat;
+  background-position: left 300px top 383px;
 }
 
 .wrapper-menu-and-logo__header {
@@ -102,6 +105,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-bottom: 230px;
 }
 
 .wrapper-text-and-btn__header h1 {
@@ -151,9 +155,14 @@ header {
 
 .first-section__content {
   flex-direction: row;
-  background: url("perth_template/ipad.png") no-repeat;
-  background-position: right 90px top 150px;
+/*  background: url("perth_template/ipad.png") no-repeat;
+  background-position: right 90px top 150px;*/
   background-color: #f4f4f4;
+}
+
+.ipad__img {
+  background: url(perth_template/ipad.png) no-repeat;
+    background-position: right 0 top 150px;
 }
 
 .wrapper-content__first-section {
@@ -217,19 +226,25 @@ header {
   display: flex;
   flex-direction: row;
   overflow: hidden;
+/*  background: url(perth_template/devices.png) no-repeat;
+  background-position: 83px 273px;*/
+}
+
+.devices__img {
   background: url(perth_template/devices.png) no-repeat;
-  background-position: 83px 273px;
+  background-position: -10px 273px;
 }
 
 .wrapper-content__second-section {
-  color: #545454;
-  width: 400px;
+  width: 395px;
   margin-top: 95px;
   float: right;
-  font-family: "Proxima Nova", serif;
 }
 
-.wrapper-content__second-section h2 {
+.second-section-title__pc, .second-section-title__phone,
+ .first-section-title__phone {
+  font-family: "Proxima Nova", serif;
+  color: #545454;
   font-size: 244%;
   margin-bottom: 33px;
 }
@@ -248,21 +263,20 @@ header {
   margin-left: 15px;
 }
 
-.view-on-dribbble__btn {
-  margin-top: 55px;
-  margin-left: 5px;
-  background-color: #ffffff;
-  color: #ea4c89;
-  padding: 15px 31px;
-  text-align: center;
-  text-decoration: none;
-  border: 2px solid #ff4b8c;
-  border-radius: 2px;
-  font-family: "Proxima Nova", serif;
-  font-size: 94%;
-  font-weight: 600;
-  line-height: 24px;
-  outline: none;
+.view-on-dribbble__btn, .second-dribbble__btn {
+  margin-top: 56px;
+    background-color: white;
+    padding: 14px 31px;
+    height: 55px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #ff4b8c;
+    border-radius: 2px;
+    font-family: "Proxima Nova", serif;
+    font-size: 94%;
+    font-weight: 600;
+    line-height: 24px;
+    outline: none;
 }
 
 .donation__section {
@@ -384,6 +398,7 @@ header {
   justify-content: center;
   align-items: center;
   background-color: #f4f4f4;
+  min-height: 650px;
 }
 
 .user-email__input {
@@ -414,12 +429,12 @@ header {
   font-size: 84%;
   font-style: italic;
   margin-top: 11px;
-  margin-left: 10.5%;
+  margin-left: 18.5%;
 }
 
 .btn-up {
   margin-top: 7px;
-  margin-right: 56px;
+  margin-right: 9%;
   align-self: center;
   background-color: #f4f4f4;
   color: #575757;
@@ -429,25 +444,40 @@ header {
   border-radius: 10px;
   outline: none;
   font-size: 140%;
+  float: right;
 }
 
 .direction-row {
   flex-direction: row;
 }
 
-@media screen and (max-width: 1366px) {
-  header, section, footer {
-    width: 100%;
-  }
+.second-section__container {
+  display: block;
+  flex-direction: row;
+}
 
-  .second-section__container {
-    width: 85%;
+.second-dribbble__btn, .second-section-title__phone, 
+.first-section-title__phone {
+  display: none;
+}
+
+@media screen and (max-width: 1400px) {
+  .wrapper {
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 1240px) {
-  .second-section__content {
-    background-position: -35px 273px;
+@media screen and (max-width: 1366px) {
+/*  header, section, footer {
+    width: 100%;
+  }*/
+
+  .second-section__container {
+    width: 90%;
+  }
+
+  .view-on-dribbble__btn {
+    left: 65%;
   }
 }
 
@@ -457,13 +487,114 @@ header {
   }
   
   .second-section__content {
-    background-position: -35px 70px;
+    background-position: -35px 120px;
     min-height: 500px;
   }
 
   .wrapper-content__second-section {
     margin-right: -50px;
-    margin-top: 50px;
+    margin-top: 45px;
+  }
+
+  .devices__img {
+    background-position: -10px 106px;
+  }
+
+  .view-on-dribbble__btn {
+    display: none;
+  }
+
+  .second-dribbble__btn {
+    display: block;
+    margin-top: 200px;
+    margin-left: 250px;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .second-dribbble__btn {
+    margin-top: 310px;
+    margin-left: 23px;
+  }
+
+  .wrapper-content__second-section {
+    float: left;
+    margin-right: 0;
+    margin-top: 30px;
+    margin-left: 175px;
+  }
+
+  .second-section-title__pc {
+    display: none;
+  }
+
+  .second-section-title__phone {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    height: 60px;
+    border-bottom: 2px dashed #00c8ee;
+  }
+
+  .img__header {
+    background-position: left 200px top 383px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .container {
+    width: 90%;
+  }
+
+  .subscription {
+    min-height: 320px;
+  }
+
+  .send-mail__btn {
+    margin-top: 80px;
+  }
+
+  .first-section-title__pc, .border__block-qoute {
+    display: none;
+  }
+
+  .first-section-title__phone {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    height: 60px;
+    border-bottom: 2px dashed #00c4ea;
+  }
+}
+
+@media screen and (max-width: 785px) {
+  .wrapper-content__first-section {
+    width: 325px;
+    float: right;
+  }
+
+  .send-mail__btn {
+    margin-top: 90px;
+    margin-left: 72px;
+  }
+
+  .wrapper-text-and-btn__header h1 {
+    margin: 0 auto;
+  }
+
+  .wrapper-text-and-btn__header {
+    align-items: flex-start;
+  }
+
+  .download__btn {
+    margin-left: 189px;
+    margin-top: 190px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .download__btn {
+    margin-left: 196px;
   }
 }
 
