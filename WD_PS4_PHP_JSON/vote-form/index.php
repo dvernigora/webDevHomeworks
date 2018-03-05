@@ -5,9 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <?php include_once 'insert_to_DB.php'; ?>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Vote-form</title>
 </head>
 <body>
@@ -18,7 +17,7 @@
             <div class="delimiter__form">
                 <label class="wrapper__form-label">
                     <img src="img/1.png">
-                    <input type="radio" class="radio__btn" name="vote" value="Sanguine" checked>Sanguine
+                    <input type="radio" class="radio__btn" name="vote" value="Sanguine">Sanguine
                 </label>
                 <label class="wrapper__form-label">
                     <img src="img/2.png">
@@ -36,9 +35,12 @@
                 </label>
             </div>
         </div>
-        <button name="getVote" type="submit">Chose</button>
+        <span class="error-msg"></span>
+        <input type="submit" class="btn" value="Chose"></input>
     </form>
 </div>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
 
