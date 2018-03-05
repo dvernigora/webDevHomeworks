@@ -15,20 +15,20 @@
     <div id="main-container">
         <form class="wrapper__task" method="POST">
             <p class="text__task">Want to know the sum of numbers from -1000 to 1000?</p>
-            <button name="sum-of-numbers" type="submit">Click me!</button>
-            <span class="text__task"><?= sumOfNumbers(); ?></span>
+            <input class="btn" name="sum-of-numbers" type="submit" value="Click me!">
+            <span class="text__task"><?= sumOfNumbers() ?></span>
         </form>
         
         <form class="wrapper__task" method="POST">
             <p class="text__task">Let's count the sum of numbers from -1000 to 1000, summing only numbers which ending
                 2, 3, and 7.</p>
-            <button name="sum-of-numbers-optionally" type="submit">Let's count</button>
+            <input class="btn" name="sum-of-numbers-optionally" type="submit" value="Let's count"></input>
             <span class="text__task"><?= sumOfNumbersOptionally() ?></span>
         </form>
         
         <form class="wrapper__task" method="POST">
             <p class="text__task">Let's build a Christmas tree!</p>
-            <button name="build-christmas-tree" type="submit">Let's build!</button>
+            <input class="btn" name="build-christmas-tree" type="submit" value="Let's build!"></input>
             <span class="text__task wrapper-for-christmas-tree">
             <?php $result = buildChristmasTree();
             if (is_array($result)) {
@@ -52,7 +52,7 @@
                     <input type="number" name="checkerboard__input-row">
                 </label>
             </div>
-            <button name="build-checkerboard">Draw!</button>
+            <input class="btn" type="submit" name="build-checkerboard" value="Draw!"></input>
             
 <?php       if (isset($_POST['build-checkerboard'])):
                 $numOfCellsInCol = $_POST['checkerboard__input-column'];
@@ -91,14 +91,15 @@
         <form class="wrapper__task" method="POST">
             <p class="text__task">You can get sum of the digits entered number.</p>
             <input type="text" name="sum-of-digits__input"/>
-            <button name="sum-of-digits-entered-number" type="submit">Click me!</button>
+            <input class="btn" name="sum-of-digits-entered-number" type="submit" 
+            value="Click me!"></input>
             <span class="text__task"><?= sumOfTheDigitsEnteredNumber(); ?></span>
         </form>
         
         <form class="wrapper__task" method="POST">
             <p class="text__task">I can generate an array of random integers from 1 to 10, 100 cells long,
                 remove from the array duplicates, sort, revert and show you the result.</p>
-            <button name="get-random-array" type="submit">Show it!</button>
+            <input class="btn" name="get-random-array" type="submit" value="Show it!"></input>
             <span class="text__task"><?php getRandArr(); ?></span>
         </form>
     </div>
