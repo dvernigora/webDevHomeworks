@@ -22,13 +22,13 @@
         <form class="wrapper__task" method="POST">
             <p class="text__task">Let's count the sum of numbers from -1000 to 1000, summing only numbers which ending
                 2, 3, and 7.</p>
-            <input class="btn" name="sum-of-numbers-optionally" type="submit" value="Let's count"></input>
+            <input class="btn" name="sum-of-numbers-optionally" type="submit" value="Let's count">
             <span class="text__task"><?= sumOfNumbersOptionally() ?></span>
         </form>
         
         <form class="wrapper__task" method="POST">
             <p class="text__task">Let's build a Christmas tree!</p>
-            <input class="btn" name="build-christmas-tree" type="submit" value="Let's build!"></input>
+            <input class="btn" name="build-christmas-tree" type="submit" value="Let's build!">
             <span class="text__task wrapper-for-christmas-tree">
             <?php $result = buildChristmasTree();
             if (is_array($result)) {
@@ -52,7 +52,7 @@
                     <input type="number" name="checkerboard__input-row">
                 </label>
             </div>
-            <input class="btn" type="submit" name="build-checkerboard" value="Draw!"></input>
+            <input class="btn" type="submit" name="build-checkerboard" value="Draw!">
             
 <?php       if (isset($_POST['build-checkerboard'])):
                 $numOfCellsInCol = $_POST['checkerboard__input-column'];
@@ -92,14 +92,14 @@
             <p class="text__task">You can get sum of the digits entered number.</p>
             <input type="text" name="sum-of-digits__input"/>
             <input class="btn" name="sum-of-digits-entered-number" type="submit" 
-            value="Click me!"></input>
+            value="Click me!">
             <span class="text__task"><?= sumOfTheDigitsEnteredNumber(); ?></span>
         </form>
         
         <form class="wrapper__task" method="POST">
             <p class="text__task">I can generate an array of random integers from 1 to 10, 100 cells long,
                 remove from the array duplicates, sort, revert and show you the result.</p>
-            <input class="btn" name="get-random-array" type="submit" value="Show it!"></input>
+            <input class="btn" name="get-random-array" type="submit" value="Show it!">
             <span class="text__task"><?php getRandArr(); ?></span>
         </form>
     </div>
