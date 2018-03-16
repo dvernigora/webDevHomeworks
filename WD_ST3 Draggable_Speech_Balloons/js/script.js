@@ -73,18 +73,16 @@ function inpBlurHandler(e) {
 
 function editMessageBubbleText() {
     WRAPPER_IMAGE.on('dblclick', '.message-bubble', function (e) {
-        if ($(this).find('input').length < 1) {
-            let self = $(this);
-            let prevTextElem = self.find('.message-bubble__text');
-            let prevText = prevTextElem.text();
-            prevTextElem.attr({style: 'display: none;'});
+        let self = $(this);
+        let prevTextElem = self.find('.message-bubble__text');
+        let prevText = prevTextElem.text();
+        prevTextElem.attr({style: 'display: none;'});
 
-            let input = $('<input>', {type: 'text', class: 'message-bubble__input'});
-            input.val(prevText);
-            self.append(input);
-            self.find('.message-bubble__input').focus();
-            inpBlurHandler(input, self);
-        }
+        let input = self.find('.message-bubble__input');
+        input.val(prevText);
+        input.attr({style: 'display: block;'});
+        self.find('.message-bubble__input').focus();
+        inpBlurHandler(input, self);
     });
 }
 
@@ -121,23 +119,11 @@ function reactOfKeydown() {
             if (e.keyCode === 13) {
                 let isAddToDB = true;
                 let inputValue = input.val();
-                if (!inputValue) {
-                    let prevTextElem = msgBubble.find('.message-bubble__text');
-                    if (prevTextElem.length > 0) {
-                        removeFromDb(msgBubble);
-                    }
-                    msgBubble.remove();
-                    return false;
-                }
                 addTextToMessageBubble(input, msgBubble, isAddToDB);
             }
             if (e.keyCode === 27) {
                 let prevTextElem = msgBubble.find('.message-bubble__text');
-                if (prevTextElem.length < 1) {
-                    msgBubble.remove();
-                    return;
-                }
-                input.remove();
+                input.attr({style: 'display: none;'});
                 let prevText = msgBubble.find('.message-bubble__text');
                 prevText.attr({style: 'display: block;'});
             }
@@ -151,12 +137,6 @@ function addTextToMessageBubble(input, msgBubble, isAddToDB) {
     prevTextElem.attr({style: 'display: block;'});
     let prevText = prevTextElem.text();
 
-    if (!inputValue) {
-        removeFromDb(msgBubble);
-        msgBubble.remove();
-        return false;
-    }
-
     if (prevText !== inputValue && isAddToDB) {
         addToDb(msgBubble, inputValue);
     }
@@ -165,7 +145,7 @@ function addTextToMessageBubble(input, msgBubble, isAddToDB) {
         prevTextElem = $('<div>', {class: 'message-bubble__text'});
     }
     prevTextElem.text(inputValue);
-    input.remove();
+    input.attr({style: 'display: none;'});
     msgBubble.append(prevTextElem);
     return true;
 }
