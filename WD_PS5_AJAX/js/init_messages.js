@@ -3,77 +3,109 @@ const SELF_PATH = windowLocation.substring(0, windowLocation.lastIndexOf('/')+1)
 const PATH_TO_DB = 'db/messages.json';
 const PATH_TO_MESSENGER = SELF_PATH + 'messenger.php';
 const MESSAGES_CONTAINER = $('.window-messages');
-const USER_NAME = get_cookie('userName');
-const DELAY = 3600000;
+let firstLoad = false;
+const REFRESH = 500;
 
 $(document).ready(function (){
-    initMessages();
-    clearMessages();
+    if (!firstLoad) {
+        initMessages();
+        firstLoad = true;
+    }
+    setInterval(initMessages, REFRESH);
     sendMessage();
+    MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
 });
 
 function initMessages(){
-    MESSAGES_CONTAINER.empty();
     $.getJSON(PATH_TO_DB, function(data) {
-        for (let key in data) {
-            let time = key.substring(key.indexOf(' ')+1);
-            let userName = data[key][0];
-            let textMessage = data[key][1];
-            addMessage(time, userName, textMessage);
-        }
-        MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
-    });
-}
-
-function clearMessages(){
-    let clearInterval = setInterval($.ajax({
-        type: 'POST',
-        url: PATH_TO_MESSENGER,
-        data: {clearMessages: ''},
-        success: function (responseMsg) {
-            if (responseMsg) {
-                console.log(responseMsg);
+        const delay = 3600000;
+        MESSAGES_CONTAINER.empty();
+        let dateNow = new Date();
+        dateNow = new Date(Date.parse(dateNow.toLocaleString()));
+        for (let item in data) {
+            let dateMsg = new Date(Date.parse(data[item][0]));
+            let time = data[item][0].substring(data[item][0].indexOf(' ')+1);
+            let userName = data[item][1];
+            let textMessage = data[item][2];
+            if (dateNow < (Date.parse(dateMsg) + delay)) {
+                addMessage(time, userName, textMessage);
             }
         }
-    }), DELAY);
-    setTimeout(clearInterval, DELAY);
+    });
 }
 
 function addMessage(time, userName, textMessage){
     let wrapperMessage = $('<div>', {class: 'message__wrapper'});
-    let message = $('<span>');
-    // let smile = '<img src="' + SELF_PATH + 'images/smile.gif" class="smile">';
-    // let sad = '<img src="' + SELF_PATH + 'images/sad.gif" class="sad">';
-    // textMessage = textMessage.replace(/\:\)/g, smile);
-    // textMessage = textMessage.replace(/\(\:/g, sad);
-    message.text('[' + time + '] ' + userName + ': ' + textMessage);
-    wrapperMessage.append(message);
+    wrapperMessage.append($('<span>').text('[' + time + '] ' + userName + ': '));
+
+    if (isContainsSmile(textMessage)) {
+        while(isContainsSmile(textMessage)){
+            textMessage = addSmile(wrapperMessage, textMessage);
+        }
+    } else {
+        wrapperMessage.append($('<span>').text(textMessage));
+    }
     MESSAGES_CONTAINER.append(wrapperMessage);
+}
+
+function isContainsSmile(textMessage){
+    return ~textMessage.indexOf(':)') || ~textMessage.indexOf(':(');
+}
+
+function addSmile(wrapperMessage, textMessage){
+    const lengthOfSmile = 2;
+    let smile = getSmilePosAndType(textMessage);
+    let firstPartOfMessage = textMessage.substring(0, smile.pos);
+
+    if (firstPartOfMessage) {
+        wrapperMessage.append($('<span>').text(firstPartOfMessage));
+    }
+
+    wrapperMessage.append('<img src="images/'+ smile.type +'.gif">');
+    textMessage = textMessage.substring(smile.pos + lengthOfSmile);
+    return textMessage;
+}
+
+function getSmilePosAndType(textMessage) {
+    let goodSmile = ':)';
+    let badSmile = ':(';
+
+    let smile = {};
+    if (textMessage.indexOf(goodSmile) < 0) {
+        smile.pos = textMessage.indexOf(badSmile);
+        smile.type = 'sad';
+        return smile;
+    }
+    if (textMessage.indexOf(badSmile) < 0) {
+        smile.pos = textMessage.indexOf(goodSmile);
+        smile.type = 'smile';
+        return smile;
+    }
+    if (textMessage.indexOf(goodSmile) < textMessage.indexOf(badSmile)) {
+        smile.pos = textMessage.indexOf(goodSmile);
+        smile.type = 'smile';
+        return smile;
+    }else {
+        smile.pos = textMessage.indexOf(badSmile);
+        smile.type = 'sad';
+        return smile;
+    }
 }
 
 function sendMessage(){
     $('#messages__form').submit(function () {
-        const SELF = $(this);
-        const MESSAGE_INPUT = $('.textfield');
-        let userMessge = MESSAGE_INPUT.val();
-        if (userMessge) {
+        const messageInput = $('.textfield');
+        let userMessage = messageInput.val();
+        if (userMessage) {
+            let fullTime = new Date().toLocaleString();
+            let time = fullTime.substring(fullTime.indexOf(' ')+1);
             $.ajax({
                 type: 'POST',
                 url: PATH_TO_MESSENGER,
-                data: {message: userMessge},
+                data: {message: userMessage, time: fullTime},
                 success: function (responseMsg) {
-                    MESSAGE_INPUT.val('');
-                    if (responseMsg) {
-                        console.log(responseMsg);
-                        return false;
-                    }
-                    let date = new Date();
-                    let hours = timeFormat(date.getHours());
-                    let minutes = timeFormat(date.getMinutes());
-                    let seconds = timeFormat(date.getSeconds());
-
-                    let time = hours + ':' + minutes + ':' + seconds;
-                    addMessage(time, USER_NAME, userMessge);
+                    messageInput.val('');
+                    addMessage(time, responseMsg, userMessage);
                     MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
                 }
             });
@@ -81,25 +113,5 @@ function sendMessage(){
         }
         return false;
     });
-}
-
-function timeFormat(val){
-    if (val === 0) {
-        return '00';
-    }
-    val = val + '';
-    if (val.length < 2) {
-        val = '0' + val;
-    }
-    return val;
-}
-
-function get_cookie(cookieName){
-    var results = document.cookie.match('(^|;) ?' + cookieName + '=([^;]*)(;|$)');
-    if (results){
-        return (unescape (results[2]));
-    } else {
-        return '';
-    }
 }
 

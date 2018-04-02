@@ -1,7 +1,7 @@
 <?php
-//include_once('messenger.php');
-if (!isset($_COOKIE['userName'])) {
-    header('location: index.php');
+session_start();
+if (!isset($_SESSION['userName'])) {
+    header('location: index.html');
 }
 ?>
 
@@ -20,7 +20,18 @@ if (!isset($_COOKIE['userName'])) {
 </head>
 <body>
 <header>
-    <!--the color palette-->
+    <div class="wrapper-for-colors">
+        <div class="container-for-color__header" style="background-color: #635960"></div>
+        <div class="container-for-color__header" style="background-color: #8b8e59"></div>
+        <div class="container-for-color__header" style="background-color: #eada7d"></div>
+        <div class="container-for-color__header" style="background-color: #fffecd"></div>
+        <div class="container-for-color__header" style="background-color: #7bc3ab"></div>
+        <div class="container-for-color__header" style="background-color: #635960"></div>
+        <div class="container-for-color__header" style="background-color: #8b8e59"></div>
+        <div class="container-for-color__header" style="background-color: #eada7d"></div>
+        <div class="container-for-color__header" style="background-color: #fffecd"></div>
+        <div class="container-for-color__header" style="background-color: #7bc3ab"></div>
+    </div>
 </header>
 <div class="wrapper-for-content animated pulse">
     <h1>Easy Chat</h1>
@@ -39,12 +50,16 @@ if (!isset($_COOKIE['userName'])) {
 <script src="js/jquery.toastmessage.js"></script>
 <script src="js/script.js"></script>
 <script src="js/init_messages.js"></script>
-<script> 
-    $().toastmessage('showToast', {
-        text     : '<?= $_COOKIE['userName']; ?>' + ' добро пожаловать!',
+<script>
+    <?php if ($_SESSION['showHelloMsg']) { ?>
+        $() . toastmessage('showToast', {
+        text     : '<?= $_SESSION['userName']; ?>' + ' добро пожаловать!',
         position : 'top-left',
         type     : 'success'
     });
+    <?php }
+    $_SESSION['showHelloMsg'] = false;
+    ?>
 </script>
 </body>
 </html>

@@ -5,6 +5,8 @@ html, body {
   flex-direction: column;
   align-items: center;
   background-color: #b9c783;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 @font-face {
@@ -119,7 +121,7 @@ header {
 }
 
 #messages__form {
-  width: 100%;
+  width: 660px;
   margin-top: -40px;
 }
 
@@ -142,11 +144,16 @@ header {
   margin-right: 30px;
   background-color: #fffecd;
   border: none;
+  font-size: 26px;
 }
 
 .sendMessage__btn {
   width: 130px;
   margin: 0;
+}
+
+.message__wrapper {
+  word-wrap: break-word;
 }
 
 

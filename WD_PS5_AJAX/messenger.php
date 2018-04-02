@@ -1,18 +1,30 @@
 <?php
+session_start();
 $pathToDb = __DIR__ . '/db/messages.json';
 $data = json_decode(file_get_contents($pathToDb), true);
-//setlocale(LC_ALL, 'Ukrainian');
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('location: index.html');
+}
+
+if (!file_exists($pathToDb)) {
+    echo "The file $pathToDb is not exists";
+    return;
+}
+
+if (!is_writable($pathToDb)) {
+    echo "The file $pathToDb is not writable";
+    return;
+}
 
 if (isset($_POST['message'])) {
-    $data[date('Y-m-d H:i:s')] = [
-        $_COOKIE['userName'],
+    $data[] = [
+        $_POST['time'],
+        $_SESSION['userName'],
         $_POST['message']
     ];
     $data = json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
-    file_put_contents($pathToDb, $data); 
+    file_put_contents($pathToDb, $data);
+    echo $_SESSION['userName'];
 }
 
-if (isset($_POST['clearDB'])) {
-    file_put_contents($pathToDb, '');
-}
-//echo '[' . date("Y-m-d H:i:s") . '] ' . ucfirst($_POST['user-name']) . ': Hello world!';
