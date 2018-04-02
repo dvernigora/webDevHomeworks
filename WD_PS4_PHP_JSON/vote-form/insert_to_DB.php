@@ -1,5 +1,5 @@
 <?php
-$pathToDb = __DIR__ . '\db\data.json';
+$pathToDb = __DIR__ . '/db/data.json';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('location: index.html');
