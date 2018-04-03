@@ -1,10 +1,6 @@
 <?php
 $pathToDb = __DIR__ . '/db/data.json';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('location: index.html');
-}
-
 if (!file_exists($pathToDb)) {
     $template = [
     "Sanguine" => 0,
@@ -25,6 +21,6 @@ if (isset($_POST['vote'])) {
     $data[$resOfVote]++;
     $pretty = json_encode($data, JSON_PRETTY_PRINT);
     file_put_contents($pathToDb, $pretty);
-    echo 'ok';
+    header('location: statistics.php');
 }
 

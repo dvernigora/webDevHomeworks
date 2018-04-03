@@ -1,3 +1,5 @@
+<?php require_once 'insert_to_DB.php' ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -39,8 +41,6 @@
         <input type="submit" class="btn" value="Chose"></input>
     </form>
 </div>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/script.js"></script>
 </body>
 </html>
 
