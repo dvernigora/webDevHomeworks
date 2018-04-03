@@ -48,8 +48,6 @@ if (!isset($_SESSION['userName'])) {
 </div>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/jquery.toastmessage.js"></script>
-<script src="js/script.js"></script>
-<script src="js/init_messages.js"></script>
 <script>
     <?php if ($_SESSION['showHelloMsg']) { ?>
         $() . toastmessage('showToast', {
@@ -61,6 +59,7 @@ if (!isset($_SESSION['userName'])) {
     $_SESSION['showHelloMsg'] = false;
     ?>
 </script>
+<script src="js/init_messages.js"></script>
 </body>
 </html>
 

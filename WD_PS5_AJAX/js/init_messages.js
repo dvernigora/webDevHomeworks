@@ -3,14 +3,10 @@ const SELF_PATH = windowLocation.substring(0, windowLocation.lastIndexOf('/')+1)
 const PATH_TO_DB = 'db/messages.json';
 const PATH_TO_MESSENGER = SELF_PATH + 'messenger.php';
 const MESSAGES_CONTAINER = $('.window-messages');
-let firstLoad = false;
-const REFRESH = 1000;
+const REFRESH = 50;
 
 $(document).ready(function (){
-    if (!firstLoad) {
-        initMessages();
-        firstLoad = true;
-    }
+    $('.wrapper-for-colors').addClass('animated rubberBand');
     setInterval(initMessages, REFRESH);
     sendMessage();
     MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
@@ -107,8 +103,8 @@ function sendMessage(){
                 success: function (responseMsg) {
                     if (responseMsg === 'ok') {
                         messageInput.val('');
-                        initMessages();
                         MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
+                        return;
                     }
                 }
             });
