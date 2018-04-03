@@ -4,7 +4,7 @@ const PATH_TO_DB = 'db/messages.json';
 const PATH_TO_MESSENGER = SELF_PATH + 'messenger.php';
 const MESSAGES_CONTAINER = $('.window-messages');
 let firstLoad = false;
-const REFRESH = 500;
+const REFRESH = 1000;
 
 $(document).ready(function (){
     if (!firstLoad) {
@@ -32,6 +32,7 @@ function initMessages(){
             }
         }
     });
+    MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
 }
 
 function addMessage(time, userName, textMessage){
@@ -104,9 +105,11 @@ function sendMessage(){
                 url: PATH_TO_MESSENGER,
                 data: {message: userMessage, time: fullTime},
                 success: function (responseMsg) {
-                    messageInput.val('');
-                    addMessage(time, responseMsg, userMessage);
-                    MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
+                    if (responseMsg === 'ok') {
+                        messageInput.val('');
+                        initMessages();
+                        MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
+                    }
                 }
             });
             return false;
