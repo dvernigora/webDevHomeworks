@@ -1,34 +1,44 @@
-let windowLocation = window.location.href;
+const windowLocation = window.location.href;
 const SELF_PATH = windowLocation.substring(0, windowLocation.lastIndexOf('/')+1);
 const PATH_TO_DB = 'db/messages.json';
 const PATH_TO_MESSENGER = SELF_PATH + 'messenger.php';
 const MESSAGES_CONTAINER = $('.window-messages');
-const REFRESH = 50;
+const REFRESH = 1000;
+let countMsg = 0;
 
 $(document).ready(function (){
     $('.wrapper-for-colors').addClass('animated rubberBand');
+    initMessages();
     setInterval(initMessages, REFRESH);
     sendMessage();
     MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
 });
 
 function initMessages(){
-    $.getJSON(PATH_TO_DB, function(data) {
-        const delay = 3600000;
-        MESSAGES_CONTAINER.empty();
-        let dateNow = new Date();
-        dateNow = new Date(Date.parse(dateNow.toLocaleString()));
-        for (let item in data) {
-            let dateMsg = new Date(Date.parse(data[item][0]));
-            let time = data[item][0].substring(data[item][0].indexOf(' ')+1);
-            let userName = data[item][1];
-            let textMessage = data[item][2];
-            if (dateNow < (Date.parse(dateMsg) + delay)) {
-                addMessage(time, userName, textMessage);
+    $.ajax({
+        type: 'POST',
+        url: PATH_TO_MESSENGER,
+        data: {getMessages: true},
+        success: function (response) {
+            let res = JSON.parse(response);
+            if (res.err) {
+                console.log(res.err);
+                return false;
+            }
+
+            const arrLength = res.length;
+            if (arrLength > countMsg) {
+                for (let i = countMsg; i < arrLength; i++) {
+                    let user = res[i];
+                    let time = user.date.substring(user.date.indexOf(' ')+1);
+                    addMessage(time, user.name, user.msg);
+                    countMsg++;
+                }
+                MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight')); 
             }
         }
     });
-    MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
+    return false;
 }
 
 function addMessage(time, userName, textMessage){
@@ -94,17 +104,22 @@ function sendMessage(){
         const messageInput = $('.textfield');
         let userMessage = messageInput.val();
         if (userMessage) {
-            let fullTime = new Date().toLocaleString();
-            let time = fullTime.substring(fullTime.indexOf(' ')+1);
             $.ajax({
                 type: 'POST',
                 url: PATH_TO_MESSENGER,
-                data: {message: userMessage, time: fullTime},
-                success: function (responseMsg) {
-                    if (responseMsg === 'ok') {
+                data: {message: userMessage},
+                success: function (response) {
+                    let res = JSON.parse(response);
+                    if (res.err) {
+                        console.log(res.err);
+                        return false;
+                    }
+                    if (res.msg) {
+                        let time = res.date.substring(res.date.indexOf(' ')+1);
                         messageInput.val('');
+                        addMessage(time, res.name, res.msg);
                         MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
-                        return;
+                        countMsg++;
                     }
                 }
             });

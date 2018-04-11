@@ -7,7 +7,6 @@ function authorization() {
     $('#login__form').submit(function (e) {
         e.preventDefault();
         const SELF = $(this);
-        const SELF_VALUES = SELF.serialize();
         const USER_NAME_INPUT = $('#user-name');
         const USER_PASSWORD_INPUT = $('#user-password');
         const USER_NAME = USER_NAME_INPUT.val();
@@ -24,28 +23,31 @@ function authorization() {
 
             errorMessage.text('Username and password must be filled.');
             addClassWithTimeout(errorMessage, 'animated rubberBand');
-            return false;
+            return;
         }
 
+        const SELF_VALUES = SELF.serialize();
         $.ajax({
             type: 'POST',
             url: 'login.php',
             data: SELF_VALUES,
-            success: function (responseMsg) {
-                if (responseMsg === 'registration confirmed') {
+            success: function (response) {
+                console.log(response);
+                let res = JSON.parse(response);
+                if (res.err) {
+                    console.log(res.err);
+                    return;
+                }
+                if (res.status) {
                     addClassWithTimeout(SELF, 'animated bounceOutDown');
                     window.location = "chat.php";
-                } else if (responseMsg === 'Wrong password.') {
-                    addClassWithTimeout(USER_PASSWORD_INPUT, 'animated shake');
-                    errorMessage.text(responseMsg);
-                    addClassWithTimeout(errorMessage, 'animated rubberBand');
                 } else {
-                    errorMessage.text(responseMsg);
+                    errorMessage.text(res.msg);
                     addClassWithTimeout(errorMessage, 'animated rubberBand');
                 }
             }
         });
-        return false;
+        return;
     });
 }
 
@@ -53,6 +55,6 @@ function addClassWithTimeout(obj, nameOfClass) {
     if (obj.hasClass(nameOfClass)) {
         obj.removeClass(nameOfClass);
     }
-    obj.addClass(nameOfClass)
+    obj.addClass(nameOfClass);
 }
 
