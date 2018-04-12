@@ -1,5 +1,5 @@
 <?php
-$pathToDb = __DIR__ . '/db/data.json';
+$pathToDb = 'db' . DIRECTORY_SEPARATOR . 'data.json';
 
 if (!file_exists($pathToDb)) {
     $template = [
