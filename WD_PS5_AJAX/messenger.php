@@ -21,11 +21,11 @@ foreach ($data as $key => $value) {
     }
 }
 
-if (isset($_POST['message'])) {
+if (isset($_POST['msg'])) {
     $userMsg = [
         'date' => $currentDate->format('d.m.Y H:i:s'), 
-        'name' => $_SESSION['userName'], 
-        'msg' => $_POST['message']
+        'name' => $_SESSION['name'], 
+        'msg' => $_POST['msg']
     ];
 
     $data[] = $userMsg;
@@ -37,7 +37,7 @@ if (isset($_POST['message'])) {
     return;
 }
 
-if (isset($_POST['getMessages'])) {
+if (isset($_POST['getmsgs'])) {
     echo json_encode($newMessages);
 }
 

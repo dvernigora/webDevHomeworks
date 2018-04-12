@@ -13,6 +13,12 @@ function authorization() {
         const USER_PASSWORD = USER_PASSWORD_INPUT.val();
         let errorMessage = $('.error-message');
 
+        if (!USER_NAME.match(/^[0-9a-zA-Z]+$/)) {
+            errorMessage.text('Username must contain only alphanumeric characters.');
+            addClassWithTimeout(errorMessage, 'animated rubberBand');
+            return;
+        }
+
         if (!USER_NAME || !USER_PASSWORD) {
             if (!USER_NAME) {
                 addClassWithTimeout(USER_NAME_INPUT, 'animated shake');

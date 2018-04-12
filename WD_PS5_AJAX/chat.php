@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['userName'])) {
+if (!isset($_SESSION['name'])) {
     header('location: index.html');
 }
 ?>
@@ -49,14 +49,14 @@ if (!isset($_SESSION['userName'])) {
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/jquery.toastmessage.js"></script>
 <script>
-    <?php if ($_SESSION['showHelloMsg']) { ?>
+    <?php if ($_SESSION['hellomsg']) { ?>
         $() . toastmessage('showToast', {
-        text     : '<?= $_SESSION['userName']; ?>' + ' добро пожаловать!',
+        text     : '<?= $_SESSION['name']; ?>' + ' добро пожаловать!',
         position : 'top-left',
         type     : 'success'
     });
     <?php }
-    $_SESSION['showHelloMsg'] = false;
+    $_SESSION['hellomsg'] = false;
     ?>
 </script>
 <script src="js/init_messages.js"></script>

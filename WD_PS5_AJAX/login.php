@@ -9,7 +9,7 @@ if ($response['err']) {
 }
 
 $data = json_decode(file_get_contents($pathToUsersDb), true);
-$userName = $_POST['user-name'];
+$userName = $_POST['name'];
 $userKey = strtolower($userName);
 
 if(isset($_SESSION)) {
@@ -19,25 +19,25 @@ session_start();
 
 if (isset($data[$userKey])) {
     $userPass = $data[$userKey];
-    if ($userPass != $_POST['user-password']) {
+    if ($userPass != $_POST['pass']) {
         $response['status'] = '';
         $response['msg'] = 'Wrong password';
         echo json_encode($response);
         return;
     } 
 
-    $_SESSION['userName'] = $userName;
-    $_SESSION['showHelloMsg'] = true;
+    $_SESSION['name'] = $userName;
+    $_SESSION['hellomsg'] = true;
     echo json_encode($response);
     return;
 }
 
-$data[$userKey] = $_POST['user-password'];
+$data[$userKey] = $_POST['pass'];
 $newData = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 file_put_contents($pathToUsersDb, $newData);
 
-$_SESSION['userName'] = $userName;
-$_SESSION['showHelloMsg'] = true;
+$_SESSION['name'] = $userName;
+$_SESSION['hellomsg'] = true;
 
 echo json_encode($response);
 return;

@@ -18,7 +18,7 @@ function initMessages(){
     $.ajax({
         type: 'POST',
         url: PATH_TO_MESSENGER,
-        data: {getMessages: true},
+        data: {getmsgs: true},
         success: function (response) {
             let res = JSON.parse(response);
             if (res.err) {
@@ -107,7 +107,7 @@ function sendMessage(){
             $.ajax({
                 type: 'POST',
                 url: PATH_TO_MESSENGER,
-                data: {message: userMessage},
+                data: {msg: userMessage},
                 success: function (response) {
                     let res = JSON.parse(response);
                     if (res.err) {
