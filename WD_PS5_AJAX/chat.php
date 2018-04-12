@@ -21,16 +21,16 @@ if (!isset($_SESSION['name'])) {
 <body>
 <header>
     <div class="wrapper-for-colors">
-        <div class="container-for-color__header" style="background-color: #635960"></div>
-        <div class="container-for-color__header" style="background-color: #8b8e59"></div>
-        <div class="container-for-color__header" style="background-color: #eada7d"></div>
-        <div class="container-for-color__header" style="background-color: #fffecd"></div>
-        <div class="container-for-color__header" style="background-color: #7bc3ab"></div>
-        <div class="container-for-color__header" style="background-color: #635960"></div>
-        <div class="container-for-color__header" style="background-color: #8b8e59"></div>
-        <div class="container-for-color__header" style="background-color: #eada7d"></div>
-        <div class="container-for-color__header" style="background-color: #fffecd"></div>
-        <div class="container-for-color__header" style="background-color: #7bc3ab"></div>
+        <div class="color__item" style="background-color: #635960"></div>
+        <div class="color__item" style="background-color: #8b8e59"></div>
+        <div class="color__item" style="background-color: #eada7d"></div>
+        <div class="color__item" style="background-color: #fffecd"></div>
+        <div class="color__item" style="background-color: #7bc3ab"></div>
+        <div class="color__item" style="background-color: #635960"></div>
+        <div class="color__item" style="background-color: #8b8e59"></div>
+        <div class="color__item" style="background-color: #eada7d"></div>
+        <div class="color__item" style="background-color: #fffecd"></div>
+        <div class="color__item" style="background-color: #7bc3ab"></div>
     </div>
 </header>
 <div class="wrapper-for-content animated pulse">

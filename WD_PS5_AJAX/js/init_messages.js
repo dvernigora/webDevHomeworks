@@ -9,7 +9,10 @@ let countMsg = 0;
 $(document).ready(function (){
     $('.wrapper-for-colors').addClass('animated rubberBand');
     initMessages();
-    setInterval(initMessages, REFRESH);
+    setTimeout(function run(){
+        initMessages();
+        setTimeout(run, REFRESH);
+    }, REFRESH);
     sendMessage();
     MESSAGES_CONTAINER.scrollTop(MESSAGES_CONTAINER.prop('scrollHeight'));
 });
@@ -48,6 +51,10 @@ function addMessage(time, userName, textMessage){
     if (isContainsSmile(textMessage)) {
         while(isContainsSmile(textMessage)){
             textMessage = addSmile(wrapperMessage, textMessage);
+            console.log(textMessage);
+        }
+        if (textMessage) {
+            wrapperMessage.append($('<span>').text(textMessage));
         }
     } else {
         wrapperMessage.append($('<span>').text(textMessage));

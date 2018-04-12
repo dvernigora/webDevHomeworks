@@ -13,22 +13,22 @@ function authorization() {
         const USER_PASSWORD = USER_PASSWORD_INPUT.val();
         let errorMessage = $('.error-message');
 
-        if (!USER_NAME.match(/^[0-9a-zA-Z]+$/)) {
-            errorMessage.text('Username must contain only alphanumeric characters.');
-            addClassWithTimeout(errorMessage, 'animated rubberBand');
+        if (!USER_NAME.match(/^[0-9a-zA-Zа-яА-Я]+$/) && USER_NAME) {
+            errorMessage.text('Username must contain only alphanumeric characters')
+            .addClass('animated rubberBand');
             return;
         }
 
         if (!USER_NAME || !USER_PASSWORD) {
             if (!USER_NAME) {
-                addClassWithTimeout(USER_NAME_INPUT, 'animated shake');
+                USER_NAME_INPUT.addClass('animated shake');
             }
             if (!USER_PASSWORD) {
-                addClassWithTimeout(USER_PASSWORD_INPUT, 'animated shake');
+                USER_PASSWORD_INPUT.addClass('animated shake');
             }
 
-            errorMessage.text('Username and password must be filled.');
-            addClassWithTimeout(errorMessage, 'animated rubberBand');
+            errorMessage.text('Username and password must be filled')
+            .addClass('animated rubberBand');
             return;
         }
 
@@ -45,22 +45,15 @@ function authorization() {
                     return;
                 }
                 if (res.status) {
-                    addClassWithTimeout(SELF, 'animated bounceOutDown');
+                    SELF.addClass('animated bounceOutDown');
                     window.location = "chat.php";
                 } else {
-                    errorMessage.text(res.msg);
-                    addClassWithTimeout(errorMessage, 'animated rubberBand');
+                    errorMessage.text(res.msg)
+                    .addClass('animated rubberBand');
                 }
             }
         });
         return;
     });
-}
-
-function addClassWithTimeout(obj, nameOfClass) {
-    if (obj.hasClass(nameOfClass)) {
-        obj.removeClass(nameOfClass);
-    }
-    obj.addClass(nameOfClass);
 }
 
